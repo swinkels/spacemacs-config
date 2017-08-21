@@ -1,0 +1,32 @@
+This repo contains my personal configuration of the [[http://spacemacs.org/][Spacemacs]] distribution of
+Emacs.
+
+* Installation
+
+* User configuration
+
+#+BEGIN_SRC Emacs-Lisp :tangle user-config.el
+;enable word wrap
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(setq system-time-locale "en_US.UTF-8")
+(custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
+(setq org-journal-date-format "%F, %A")
+
+(custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
+
+(add-to-list 'org-agenda-files org-journal-dir)
+
+(setq org-journal-time-format "")
+
+(defun add-time-as-orgmode-property()
+  (progn
+    (org-insert-property-drawer)
+    (org-entry-put (point) "Time" (format-time-string "%H:%M"))
+    (re-search-backward "^*")
+    (end-of-line)
+    )
+  )
+
+(add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
+#+END_SRC
