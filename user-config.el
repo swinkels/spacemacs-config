@@ -1,3 +1,6 @@
+;let the frame titlebar show the path to the current file and the buffer name
+(setq frame-title-format "%f - %b (%*)")
+
 ;enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 

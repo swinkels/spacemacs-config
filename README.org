@@ -4,8 +4,11 @@ Emacs.
 * Installation
 
 * User configuration
+** Top-level user configuration
 
-#+BEGIN_SRC Emacs-Lisp :tangle user-config.el
+#+BEGIN_SRC Emacs-Lisp :noweb tangle :tangle user-config.el
+<<frame-appearance>>
+
 ;enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -30,3 +33,16 @@ Emacs.
 
 (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 #+END_SRC
+
+** Frame appearance
+
+We let the frame titlebar show the path to the current file and the name of the
+buffer. Both the path and the buffer name may seem a bit much for a buffer that
+holds a file, but not every buffer does. For those buffers, for example the
+scratch buffer or the magit status buffer, the buffer name helps a lot.
+#+BEGIN_SRC Emacs-Lisp :noweb-ref frame-appearance 
+;let the frame titlebar show the path to the current file and the buffer name
+(setq frame-title-format "%f - %b (%*)")
+#+END_SRC
+
+* Configuration maintenance
