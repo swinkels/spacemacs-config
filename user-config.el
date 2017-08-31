@@ -1,7 +1,19 @@
-;let the frame titlebar show the path to the current file and the buffer name
+;; ---- Frame appearance
+
+;; let the frame titlebar show the path to the current file and the buffer name
 (setq frame-title-format "%f - %b (%*)")
 
-;enable word wrap
+
+;; ---- Python extensions
+
+;; PEP8 recommends to "avoid trailing whitespace anywhere"
+(eval-after-load 'python-mode
+  '(add-hook 'python-mode-hook
+             '(lambda () (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)))
+  )
+
+
+;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 (setq system-time-locale "en_US.UTF-8")
