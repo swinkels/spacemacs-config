@@ -36,3 +36,8 @@
   )
 
 (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
+
+(defun sks-buffers-nosort-transformer (_ candidates _)
+  candidates)
+
+(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)

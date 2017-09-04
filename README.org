@@ -36,6 +36,17 @@ Emacs.
   (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 #+END_SRC
 
+For some reason the buffer list is ordered by the length of the buffer name once
+the user has entered a pattern. It allows for much more comfortable buffer
+switching if we maintain the standard most-recently-used ordering:
+#+BEGIN_SRC emacs-lisp :tangle user-config.el
+(defun sks-buffers-nosort-transformer (_ candidates _)
+  candidates)
+
+(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
+#+END_SRC
+This solution comes from [[https://github.com/emacs-helm/helm/issues/1492#issuecomment-216520302][this comment]] on GitHub issue [[https://github.com/emacs-helm/helm/issues/1492][emacs-helm/helm #1492]] "Can
+I define sorting order when narrowing down buffers list?".
 ** Frame appearance
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
