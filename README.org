@@ -9,8 +9,6 @@ Emacs.
 #+BEGIN_SRC emacs-lisp :noweb tangle :tangle user-config.el
   <<Frame-appearance>>
 
-  <<Python-extensions>>
-
   ;; enable word wrap
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -66,18 +64,5 @@ scratch buffer or the magit status buffer, the buffer name helps a lot.
 #+END_SRC
 
 ** Language support
-
-#+BEGIN_SRC emacs-lisp :noweb-ref Python-extensions
-;; ---- Python extensions
-
-#+END_SRC
-#+BEGIN_SRC emacs-lisp :noweb-ref Python-extensions
-  ;; PEP8 recommends to "avoid trailing whitespace anywhere"
-  (eval-after-load 'python-mode
-    '(add-hook 'python-mode-hook
-               '(lambda () (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)))
-    )
-
-#+END_SRC
 
 * Configuration maintenance

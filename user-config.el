@@ -4,15 +4,6 @@
 (setq frame-title-format "%f - %b (%*)")
 
 
-;; ---- Python extensions
-
-;; PEP8 recommends to "avoid trailing whitespace anywhere"
-(eval-after-load 'python-mode
-  '(add-hook 'python-mode-hook
-             '(lambda () (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)))
-  )
-
-
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
