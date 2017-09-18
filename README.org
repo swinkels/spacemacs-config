@@ -9,6 +9,8 @@ Emacs.
 #+BEGIN_SRC emacs-lisp :noweb tangle :tangle user-config.el
   <<Frame-appearance>>
 
+  <<Key-bindings>>
+
   ;; enable word wrap
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -57,10 +59,25 @@ buffer. Both the path and the buffer name may seem a bit much for a buffer that
 holds a file, but not every buffer does. For those buffers, for example the
 scratch buffer or the magit status buffer, the buffer name helps a lot.
 
-#+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance 
+#+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
   ;; let the frame titlebar show the path to the current file and the buffer name
   (setq frame-title-format "%f - %b (%*)")
+#+END_SRC
 
+** Key bindings
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
+;; ---- Key bindings
+
+#+END_SRC
+
+The function next-error allows one to sequentially visit the errors listed in a
+compilation buffer or the matches in a grep buffer (and more). The default key
+binding is C-x `. This is cumbersome binding, even more so if you have a
+keyboard with dead keys. We rebind it as follows:
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
+  (global-set-key [f4]       'next-error)
 #+END_SRC
 
 ** Language support
