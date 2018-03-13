@@ -7,46 +7,16 @@ Emacs.
 ** Top-level user configuration
 
 #+BEGIN_SRC emacs-lisp :noweb tangle :tangle user-config.el
-  <<Frame-appearance>>
+<<Frame-appearance>>
 
-  <<Key-bindings>>
+<<Key-bindings>>
 
-  ;; enable word wrap
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
+<<Miscellaneous>>
 
-  (setq system-time-locale "en_US.UTF-8")
-  (custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
-  (setq org-journal-date-format "%F, %A")
+<<Individual-packages>>
 
-  (custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
-
-  (add-to-list 'org-agenda-files org-journal-dir)
-
-  (setq org-journal-time-format "")
-
-  (defun add-time-as-orgmode-property()
-    (progn
-      (org-insert-property-drawer)
-      (org-entry-put (point) "Time" (format-time-string "%H:%M"))
-      (re-search-backward "^*")
-      (end-of-line)
-      )
-    )
-
-  (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 #+END_SRC
 
-For some reason the buffer list is ordered by the length of the buffer name once
-the user has entered a pattern. It allows for much more comfortable buffer
-switching if we maintain the standard most-recently-used ordering:
-#+BEGIN_SRC emacs-lisp :tangle user-config.el
-(defun sks-buffers-nosort-transformer (_ candidates _)
-  candidates)
-
-(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
-#+END_SRC
-This solution comes from [[https://github.com/emacs-helm/helm/issues/1492#issuecomment-216520302][this comment]] on GitHub issue [[https://github.com/emacs-helm/helm/issues/1492][emacs-helm/helm #1492]] "Can
-I define sorting order when narrowing down buffers list?".
 ** Frame appearance
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
@@ -60,8 +30,8 @@ holds a file, but not every buffer does. For those buffers, for example the
 scratch buffer or the magit status buffer, the buffer name helps a lot.
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
-  ;; let the frame titlebar show the path to the current file and the buffer name
-  (setq frame-title-format "%f - %b (%*)")
+;; let the frame titlebar show the path to the current file and the buffer name
+(setq frame-title-format "%f - %b (%*)")
 #+END_SRC
 
 ** Key bindings
@@ -77,9 +47,90 @@ binding is C-x `. This is cumbersome binding, even more so if you have a
 keyboard with dead keys. We rebind it as follows:
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
-  (global-set-key [f4]       'next-error)
+(global-set-key [f4]       'next-error)
 #+END_SRC
 
-** Language support
+** Miscellaneous
 
-* Configuration maintenance
+#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
+;; ---- Miscellaneous
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
+;; enable word wrap
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+#+END_SRC
+
+For some reason the buffer list is ordered by the length of the buffer name once
+the user has entered a pattern. It allows for much more comfortable buffer
+switching if we maintain the standard most-recently-used ordering:
+#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
+(defun sks-buffers-nosort-transformer (_ candidates _)
+  candidates)
+
+(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
+#+END_SRC
+This solution comes from [[https://github.com/emacs-helm/helm/issues/1492#issuecomment-216520302][this comment]] on GitHub issue [[https://github.com/emacs-helm/helm/issues/1492][emacs-helm/helm #1492]] "Can
+I define sorting order when narrowing down buffers list?".
+
+** Individual packages
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; ---- Individual-packages
+
+#+END_SRC
+
+*** org-mode
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- org-mode
+
+#+END_SRC
+
+We allow the evaluation of Python source code blocks in Org buffers:
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(with-eval-after-load 'org
+  (require 'ob-python)
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    '((python . t))))
+
+#+END_SRC
+
+*** org-journal
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- org-journal
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(setq system-time-locale "en_US.UTF-8")
+(custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
+(setq org-journal-date-format "%F, %A")
+
+(custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
+(add-to-list 'org-agenda-files org-journal-dir)
+
+(setq org-journal-time-format "")
+
+(defun add-time-as-orgmode-property()
+  (progn
+    (org-insert-property-drawer)
+    (org-entry-put (point) "Time" (format-time-string "%H:%M"))
+    (re-search-backward "^*")
+    (end-of-line)
+    )
+  )
+
+(add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
+
+#+END_SRC
+
+We use package [[https://github.com/swinkels/oje][oje]] to export our org-journal to  [[https://getnikola.com/][Nikola]], the static site generator:
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(load "~/repos/github.com/oje/oje.el")
+
+#+END_SRC

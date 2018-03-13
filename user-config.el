@@ -7,15 +7,33 @@
 
 (global-set-key [f4]       'next-error)
 
+;; ---- Miscellaneous
+
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(defun sks-buffers-nosort-transformer (_ candidates _)
+  candidates)
+
+(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
+
+;; ---- Individual-packages
+
+;; -------- org-mode
+
+(with-eval-after-load 'org
+  (require 'ob-python)
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    '((python . t))))
+
+;; -------- org-journal
 
 (setq system-time-locale "en_US.UTF-8")
 (custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
 (setq org-journal-date-format "%F, %A")
 
 (custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
-
 (add-to-list 'org-agenda-files org-journal-dir)
 
 (setq org-journal-time-format "")
@@ -31,7 +49,4 @@
 
 (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 
-(defun sks-buffers-nosort-transformer (_ candidates _)
-  candidates)
-
-(advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
+(load "~/repos/github.com/oje/oje.el")
