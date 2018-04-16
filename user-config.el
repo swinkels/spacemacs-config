@@ -30,23 +30,25 @@
 ;; -------- org-journal
 
 (setq system-time-locale "en_US.UTF-8")
-(custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
-(setq org-journal-date-format "%F, %A")
 
-(custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
-(add-to-list 'org-agenda-files org-journal-dir)
+(with-eval-after-load 'org-journal
+  (custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
+  (custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
+  (setq org-journal-date-format "%F, %A")
 
-(setq org-journal-time-format "")
+  (add-to-list 'org-agenda-files org-journal-dir)
 
-(defun add-time-as-orgmode-property()
-  (progn
-    (org-insert-property-drawer)
-    (org-entry-put (point) "Time" (format-time-string "%H:%M"))
-    (re-search-backward "^*")
-    (end-of-line)
+  (setq org-journal-time-format "")
+
+  (defun add-time-as-orgmode-property()
+    (progn
+      (org-insert-property-drawer)
+      (org-entry-put (point) "Time" (format-time-string "%H:%M"))
+      (re-search-backward "^*")
+      (end-of-line)
+      )
     )
-  )
-
-(add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
+  (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
+)
 
 (load "~/repos/github.com/oje/oje.el")
