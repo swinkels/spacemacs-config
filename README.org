@@ -42,12 +42,22 @@ scratch buffer or the magit status buffer, the buffer name helps a lot.
 #+END_SRC
 
 The function next-error allows one to sequentially visit the errors listed in a
-compilation buffer or the matches in a grep buffer (and more). The default key
+compilation buffer or the matches in a grep buffer (and more). In Emacs, the key
 binding is C-x `. This is cumbersome binding, even more so if you have a
 keyboard with dead keys. We rebind it as follows:
-
 #+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
 (global-set-key [f4]       'next-error)
+#+END_SRC
+Note that in Spacemacs, the keybinding is SPC-e-n.
+
+Spacemacs lets the TAB key indent the current line, and if the line is already
+indented, tries to complete the thing at point. This pops up an unwanted menu of
+completion options when you want to re-indent an empty line whose indentation is
+incorrect. Especially in elm-mode, whose indent on an empty line is almost
+incorrect by default, this is very annoying. As I never use TAB to get a
+completion menu, I let TAB only indent:
+#+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
+(setq tab-always-indent t)
 #+END_SRC
 
 ** Miscellaneous
