@@ -50,12 +50,11 @@ keyboard with dead keys. We rebind it as follows:
 #+END_SRC
 Note that in Spacemacs, the keybinding is SPC-e-n.
 
-Spacemacs lets the TAB key indent the current line, and if the line is already
-indented, tries to complete the thing at point. This pops up an unwanted menu of
-completion options when you want to re-indent an empty line whose indentation is
-incorrect. Especially in elm-mode, whose indent on an empty line is almost
-incorrect by default, this is very annoying. As I never use TAB to get a
-completion menu, I let TAB only indent:
+Spacemacs lets the TAB key indent the current line, or if the line is already
+indented, complete the thing at point. So if point is at an empty line that you
+want to re-indent, TAB pops up an unwanted menu of completion options. This is
+annoying for modes where the automatic indent is often incorrect, for example
+elm-mode. As I never use TAB to get a completion menu, I let TAB only indent:
 #+BEGIN_SRC emacs-lisp :noweb-ref Key-bindings
 (setq tab-always-indent t)
 #+END_SRC
