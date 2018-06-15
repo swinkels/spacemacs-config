@@ -91,6 +91,20 @@ I define sorting order when narrowing down buffers list?".
 
 #+END_SRC
 
+*** Elm
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- elm-mode
+
+#+END_SRC
+
+Format the current Elm buffer on save.
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(with-eval-after-load 'elm-format
+    (setq elm-format-on-save t))
+
+#+END_SRC
+
 *** org-mode
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages

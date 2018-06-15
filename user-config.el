@@ -20,6 +20,11 @@
 
 ;; ---- Individual-packages
 
+;; -------- elm-mode
+
+(with-eval-after-load 'elm-format
+    (setq elm-format-on-save t))
+
 ;; -------- org-mode
 
 (with-eval-after-load 'org
