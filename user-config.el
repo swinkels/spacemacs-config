@@ -3,6 +3,9 @@
 ;; let the frame titlebar show the path to the current file and the buffer name
 (setq frame-title-format "%f - %b (%*)")
 
+(setq powerline-default-separator 'arrow)
+
+
 ;; ---- Key bindings
 
 (global-set-key [f4]       'next-error)

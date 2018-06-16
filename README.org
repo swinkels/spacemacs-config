@@ -32,6 +32,16 @@ scratch buffer or the magit status buffer, the buffer name helps a lot.
 #+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
 ;; let the frame titlebar show the path to the current file and the buffer name
 (setq frame-title-format "%f - %b (%*)")
+
+#+END_SRC
+
+I use Spacemacs both as a GUI and terminal application. It appears that the
+terminal version always uses the arrow separator in the modeline, even if you
+specify it otherwise. For consistency reasons I let the GUI version also use the
+arrow separator.
+#+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
+(setq powerline-default-separator 'arrow)
+
 #+END_SRC
 
 ** Key bindings
