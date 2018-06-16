@@ -159,3 +159,18 @@ We use package [[https://github.com/swinkels/oje][oje]] to export our org-journa
 (load "~/repos/github.com/oje/oje.el")
 
 #+END_SRC
+*** Terminals
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- terminals
+
+#+END_SRC
+
+When you open a shell, it starts in Evil insert mode. In this mode C-r does not
+work, which is the binding to find a command in your command history. I also
+noticed that sometimes, the command shown is not (exactly) the command that will
+be executed. Therefore I start shells in Emacs mode.
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(evil-set-initial-state 'term-mode 'emacs)
+
+#+END_SRC

@@ -58,3 +58,7 @@
 )
 
 (load "~/repos/github.com/oje/oje.el")
+
+;; -------- terminals
+
+(evil-set-initial-state 'term-mode 'emacs)
