@@ -36,11 +36,17 @@ scratch buffer or the magit status buffer, the buffer name helps a lot.
 #+END_SRC
 
 I use Spacemacs both as a GUI and terminal application. It appears that the
-terminal version always uses the arrow separator in the modeline, even if you
-specify it otherwise. For consistency reasons I let the GUI version also use the
-arrow separator.
+terminal version uses the arrow separator in the modeline, even if you specify
+another one. Now it becomes even funnier, when you set the separator to arrow,
+the terminal version gives you the following error
+#+BEGIN_EXAMPLE
+max: Wrong type argument: number-or-marker-p, nil
+#+END_EXAMPLE
+and seems to use no separator. To have the same (arrow) separator in the GUI and
+terminal version, I only set the separator for the GUI version:
 #+BEGIN_SRC emacs-lisp :noweb-ref Frame-appearance
-(setq powerline-default-separator 'arrow)
+(if (display-graphic-p)
+  (setq powerline-default-separator 'arrow))
 
 #+END_SRC
 
