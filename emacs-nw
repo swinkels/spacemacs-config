@@ -1,0 +1,2 @@
+#!/bin/bash
+env TERM=xterm-256color emacsclient -nw -a "" "$@"
