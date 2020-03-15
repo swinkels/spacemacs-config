@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
      gtags
      helm
      html
+     journal
      lsp
      lua
      markdown
