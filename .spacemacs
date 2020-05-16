@@ -52,7 +52,6 @@ This function should only modify configuration layer settings."
      lsp
      lua
      markdown
-     multiple-cursors
      org
      python
      (shell :variables
