@@ -53,7 +53,11 @@ This function should only modify configuration layer settings."
      lua
      markdown
      org
-     python
+     (python :variables
+             python-backend 'anaconda
+             python-formatter 'black
+             python-format-on-save t
+             python-test-runner 'pytest)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -486,9 +490,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blacken-only-if-project-is-blackened t)
  '(cquery-extra-args
    (quote
     ("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery")))
+ '(flycheck-python-flake8-executable "flake8")
  '(lsp-log-io t)
  '(org-babel-load-languages (quote ((shell . t) (emacs-lisp . t) (python . t))))
  '(package-selected-packages
