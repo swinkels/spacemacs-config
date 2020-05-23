@@ -73,8 +73,14 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
 
+   ;; In the next line, we use a backquote instead of a single quote. This lets
+   ;; Emacs evaluate the sub-expression of the quoted object that follows the
+   ;; comma.
+   dotspacemacs-additional-packages
+   `(
+     (tox-pyvenv :location ,(concat spacemacs-private-directory "tox-pyvenv"))
+     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 

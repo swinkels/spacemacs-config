@@ -57,6 +57,10 @@
 
 (load "~/repos/github.com/oje/oje.el")
 
+;; -------- tox-pyvenv
+
+(require 'tox-pyvenv)
+
 ;; -------- terminals
 
 (evil-set-initial-state 'term-mode 'emacs)

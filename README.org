@@ -153,6 +153,17 @@ We use package [[https://github.com/swinkels/oje][oje]] to export our org-journa
 (load "~/repos/github.com/oje/oje.el")
 
 #+END_SRC
+*** tox-pyvenv
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- tox-pyvenv
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(require 'tox-pyvenv)
+
+#+END_SRC
 *** Terminals
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
