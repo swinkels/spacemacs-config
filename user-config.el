@@ -59,7 +59,10 @@
 
 ;; -------- tox-pyvenv
 
-(require 'tox-pyvenv)
+(use-package tox-pyvenv
+  :commands (tox-pyvenv-activate)
+  :init
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode "vt" 'tox-pyvenv-activate))
 
 ;; -------- terminals
 

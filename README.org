@@ -161,9 +161,13 @@ We use package [[https://github.com/swinkels/oje][oje]] to export our org-journa
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
-(require 'tox-pyvenv)
+(use-package tox-pyvenv
+  :commands (tox-pyvenv-activate)
+  :init
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode "vt" 'tox-pyvenv-activate))
 
 #+END_SRC
+
 *** Terminals
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
