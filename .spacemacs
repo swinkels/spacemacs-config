@@ -79,7 +79,7 @@ This function should only modify configuration layer settings."
    ;; comma.
    dotspacemacs-additional-packages
    `(
-     (tox-pyvenv :location ,(concat spacemacs-private-directory "tox-pyvenv"))
+     (tox-pyvenv :location (recipe :fetcher github :repo "swinkels/tox-pyvenv"))
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
