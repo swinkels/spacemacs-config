@@ -54,7 +54,8 @@ This function should only modify configuration layer settings."
      markdown
      org
      (python :variables
-             python-backend 'anaconda
+             ;; python-backend 'anaconda
+             python-backend 'lsp
              python-formatter 'black
              python-format-on-save t
              python-test-runner 'pytest)
@@ -500,8 +501,11 @@ This function is called at the very end of Spacemacs initialization."
  '(cquery-extra-args
    (quote
     ("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery")))
+ '(eldoc-idle-delay 1.5)
  '(flycheck-python-flake8-executable "flake8")
  '(lsp-log-io t)
+ '(lsp-pyls-configuration-sources ["flake8"])
+ '(lsp-pyls-plugins-flake8-enabled t)
  '(org-babel-load-languages (quote ((shell . t) (emacs-lisp . t) (python . t))))
  '(package-selected-packages
    (quote
