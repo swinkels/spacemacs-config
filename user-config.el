@@ -23,6 +23,10 @@
 (with-eval-after-load 'elm-format
     (setq elm-format-on-save t))
 
+;; -------- lsp-mode
+
+(setq lsp-headerline-arrow ">")
+
 ;; -------- org-mode
 
 (with-eval-after-load 'org

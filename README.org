@@ -99,6 +99,44 @@ Format the current Elm buffer on save.
 
 #+END_SRC
 
+*** lsp-mode
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- lsp-mode
+
+#+END_SRC
+
+lsp-mode has several functions to automatically display information about the
+current file and current symbol. I find these automatic updates distracting so I
+disable some of them:
+
+- lsp-headerline-breadcrumb :: lsp-mode shows the so-called breadcrumbs that
+  lead up to the current file or the current symbol. I don't have a use for
+  these breadcrumbs, find their continuous updates distracting and don't like
+  the combination of text and graphical icons used to display them. I set
+  lsp-headerling-breadcrumb-enable to nil to disable the breadcrumbs.
+
+- lsp-ui-doc-enable :: lsp-mode shows the documentation of a symbol in a
+  separate "dialog" when you hover over the symbol with the mouse or when the
+  the cursor is in the symbol. I set lsp-ui-doc-enable to disable this. In case
+  you do want to see the documentation, call lsp-describe-thing-at-point, which
+  is bound to ~SPC m h h~.
+
+- lsp-enable-symbol-highlighting :: lsp-mode highlights each occurrence of the
+  symbol that contains the cursor. I set lsp-enable-symbol-highlighting to nil
+  to disable this.
+
+In case you do want to show the breadcrumbs, the variable lsp-headerline-arrow
+specifies the delimeter between them. The default delimeter is an icon from the
+"Material Icon" family of fonts. If these are not installed, and they aren't by
+default, a weird character is displayed instead. As a fallback, that should also
+work in a non-GUI setting, we use the standard text symbol for greater-than:
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(setq lsp-headerline-arrow ">")
+
+#+END_SRC
+
 *** org-mode
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages

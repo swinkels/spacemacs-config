@@ -550,12 +550,15 @@ This function is called at the very end of Spacemacs initialization."
     ("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery")))
  '(eldoc-idle-delay 1.5)
  '(flycheck-python-flake8-executable "flake8")
+ '(lsp-enable-symbol-highlighting nil)
+ '(lsp-headerline-breadcrumb-enable nil)
  '(lsp-log-io t)
  '(lsp-pyls-configuration-sources ["flake8"])
  '(lsp-pyls-plugins-flake8-enabled t)
  '(lsp-pyls-plugins-mccabe-enabled nil)
  '(lsp-pyls-plugins-pycodestyle-enabled nil)
  '(lsp-pyls-plugins-pyflakes-enabled nil)
+ '(lsp-ui-doc-enable nil)
  '(org-babel-load-languages (quote ((shell . t) (emacs-lisp . t) (python . t))))
  '(package-selected-packages
    (quote
