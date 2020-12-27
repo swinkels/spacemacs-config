@@ -45,7 +45,6 @@ This function should only modify configuration layer settings."
      emacs-lisp
      javascript
      git
-     gtags
      helm
      html
      journal
@@ -86,7 +85,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(org-bullets)
+   dotspacemacs-excluded-packages '(gtags org-bullets)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
