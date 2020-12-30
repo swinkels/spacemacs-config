@@ -8,6 +8,9 @@
 
 ;; ---- Miscellaneous
 
+;; move point according to visual lines globally
+(spacemacs/toggle-visual-line-navigation-globally-on)
+
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 

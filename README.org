@@ -60,6 +60,18 @@ elm-mode. As I never use TAB to get a completion menu, I let TAB only indent:
 
 #+END_SRC
 
+I let Emacs display the visual line numbers so each visual line of a wrapped
+"logical" line gets its own line number. I also use the vim editing style, which
+by default works with logical lines. So if I press ~j~, point moves to the next
+logical line, which does not have to be the next visual line. This is not what I
+want: I want point to move to the next visual line. The following function
+enables that:
+#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
+;; move point according to visual lines globally
+(spacemacs/toggle-visual-line-navigation-globally-on)
+
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
