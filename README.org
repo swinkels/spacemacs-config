@@ -138,6 +138,13 @@ disable some of them:
   symbol that contains the cursor. I set lsp-enable-symbol-highlighting to nil
   to disable this.
 
+- lsp-signature-auto-activate :: lsp-mode shows information about the signature
+  of a function when you type the opening parenthesis of the parameters. But
+  when you accept an option that auto-completion offers you, the opening
+  parenthesis is automatically inserted and no signature information is shown.
+  This variable specifies the list of triggers to show this signature
+  information and I add the trigger ~:after-completion~.
+
 In case you do want to show the breadcrumbs, the variable lsp-headerline-arrow
 specifies the delimeter between them. The default delimeter is an icon from the
 "Material Icon" family of fonts. If these are not installed, and they aren't by
