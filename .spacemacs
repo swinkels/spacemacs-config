@@ -549,7 +549,6 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery")))
  '(eldoc-idle-delay 1.5)
- '(flycheck-python-flake8-executable "flake8")
  '(lsp-enable-symbol-highlighting nil)
  '(lsp-headerline-breadcrumb-enable nil)
  '(lsp-log-io t)
