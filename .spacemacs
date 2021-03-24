@@ -52,6 +52,7 @@ This function should only modify configuration layer settings."
      lua
      markdown
      org
+     outshine
      (python :variables
              ;; python-backend 'anaconda
              python-backend 'lsp
