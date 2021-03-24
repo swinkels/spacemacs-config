@@ -572,6 +572,7 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-log-io t)
  '(lsp-pyls-configuration-sources ["flake8"])
  '(lsp-pyls-plugins-flake8-enabled t)
+ '(lsp-pyls-plugins-jedi-use-pyenv-environment t)
  '(lsp-pyls-plugins-mccabe-enabled nil)
  '(lsp-pyls-plugins-pycodestyle-enabled nil)
  '(lsp-pyls-plugins-pyflakes-enabled nil)
