@@ -8,8 +8,20 @@
 
 ;; ---- Miscellaneous
 
-;; move point according to visual lines globally
-(spacemacs/toggle-visual-line-navigation-globally-on)
+;; After my update to Emacs 27.1 and Spacemacs 679040f, I had to comment the
+;; toggle
+;;
+;;     (spacemacs/toggle-visual-line-navigation-globally-on)
+;;
+;; as it changed the interpretation of Vim commands 'dj' and 'd<N>j'. In Vim and
+;; earlier versions of the Emacs/Spacemacs combination, that command deletes the
+;; current line and the N next lines (where 'dj' means 'd1j'). After my update,
+;; it only deleted the part of the current line after point and deleted the N-1
+;; next lines.
+;;
+;; Obviously, this problem occurs when option dotspacemacs-line-numbers is set
+;; to 'visual (as otherwise you wouldn't need this option). As visual navigation
+;; is weird with the toggle off, I went back to 'relative.
 
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
