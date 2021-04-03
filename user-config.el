@@ -62,8 +62,6 @@
   (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 )
 
-(load "~/repos/github.com/oje/oje.el")
-
 ;; -------- tox-pyvenv
 
 (use-package tox-pyvenv
