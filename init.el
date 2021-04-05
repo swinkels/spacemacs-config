@@ -547,7 +547,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (load "~/repos/github.com/spacemacs-config/user-config.el")
+  ;; Ideally I would load this file from the same directory as the current file
+  ;; but I don't know how to determine that directory using Emacs Lisp. Most of
+  ;; the times, if not all the time, the current file will be used from
+  ;; ~/.spacemacs.d, so I assume that directory is the right one.
+  (load "~/.spacemacs.d/user-config.el")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
