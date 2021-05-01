@@ -60,18 +60,6 @@ elm-mode. As I never use TAB to get a completion menu, I let TAB only indent:
 
 #+END_SRC
 
-I let Emacs display the visual line numbers so each visual line of a wrapped
-"logical" line gets its own line number. I also use the vim editing style, which
-by default works with logical lines. So if I press ~j~, point moves to the next
-logical line, which does not have to be the next visual line. This is not what I
-want: I want point to move to the next visual line. The following function
-enables that:
-#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
-;; move point according to visual lines globally
-(spacemacs/toggle-visual-line-navigation-globally-on)
-
-#+END_SRC
-
 #+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -205,11 +193,27 @@ We allow the evaluation of Python source code blocks in Org buffers:
 
 #+END_SRC
 
-We use package [[https://github.com/swinkels/oje][oje]] to export our org-journal to [[https://getnikola.com/][Nikola]], the static site generator:
-#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
-(load "~/repos/github.com/oje/oje.el")
+*** python mode
 
+When ~lsp-mode~ initializes, it adds a hook to ~lsp-after-open-hook~ that adds
+the appropriate lsp "find definition" function to the Spacemacs jump handlers of
+~spacemacs-jump-handlers~. However, there is also a Python mode hook that
+executes later, ~spacemacs//init-jump-handlers-python-mode~, that resets
+~spacemacs-jump-handlers~ back to default. So when you open a Python file and
+use ~spacemacs/jump-to-definition~, it will not use lsp to find the definition.
+
+Fortunately the aforementioned ~spacemacs//init-jump-handlers-python-mode~ does
+honor the jump handlers of ~spacemacs-jump-handlers-python-mode~. As a
+workaround we add the lsp "find definition" function to that list of handlers:
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+;; -------- Python mode
+
+(add-to-list 'spacemacs-jump-handlers-python-mode '(lsp-ui-peek-find-definitions :async t))
 #+END_SRC
+
+I have reported the issue to Spacemacs, [[https://github.com/syl20bnr/spacemacs/issues/14729][syl20bnr/spacemacs/#14729]].
+
 *** tox-pyvenv
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
