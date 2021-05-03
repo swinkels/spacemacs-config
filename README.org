@@ -193,27 +193,6 @@ We allow the evaluation of Python source code blocks in Org buffers:
 
 #+END_SRC
 
-*** python mode
-
-When ~lsp-mode~ initializes, it adds a hook to ~lsp-after-open-hook~ that adds
-the appropriate lsp "find definition" function to the Spacemacs jump handlers of
-~spacemacs-jump-handlers~. However, there is also a Python mode hook that
-executes later, ~spacemacs//init-jump-handlers-python-mode~, that resets
-~spacemacs-jump-handlers~ back to default. So when you open a Python file and
-use ~spacemacs/jump-to-definition~, it will not use lsp to find the definition.
-
-Fortunately the aforementioned ~spacemacs//init-jump-handlers-python-mode~ does
-honor the jump handlers of ~spacemacs-jump-handlers-python-mode~. As a
-workaround we add the lsp "find definition" function to that list of handlers:
-
-#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
-;; -------- Python mode
-
-(add-to-list 'spacemacs-jump-handlers-python-mode '(lsp-ui-peek-find-definitions :async t))
-#+END_SRC
-
-I have reported the issue to Spacemacs, [[https://github.com/syl20bnr/spacemacs/issues/14729][syl20bnr/spacemacs/#14729]].
-
 *** tox-pyvenv
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages

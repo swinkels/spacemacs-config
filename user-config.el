@@ -59,9 +59,6 @@
   (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
 )
 
-;; -------- Python mode
-
-(add-to-list 'spacemacs-jump-handlers-python-mode '(lsp-ui-peek-find-definitions :async t))
 ;; -------- tox-pyvenv
 
 (use-package tox-pyvenv
