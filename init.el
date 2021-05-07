@@ -580,6 +580,7 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-pyls-plugins-pycodestyle-enabled nil)
  '(lsp-pyls-plugins-pyflakes-enabled nil)
  '(lsp-signature-auto-activate '(:on-trigger-char :after-completion))
+ '(lsp-signature-render-documentation nil)
  '(lsp-ui-doc-enable nil)
  '(lsp-ui-sideline-show-diagnostics nil)
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t)))
