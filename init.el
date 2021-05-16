@@ -573,7 +573,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol t)
  '(lsp-enable-symbol-highlighting nil)
  '(lsp-headerline-breadcrumb-enable nil)
- '(lsp-log-io t)
+ ;; '(lsp-log-io t)
  '(lsp-pyls-configuration-sources ["flake8"])
  '(lsp-pyls-plugins-flake8-enabled t)
  '(lsp-pyls-plugins-mccabe-enabled nil)
