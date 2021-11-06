@@ -56,8 +56,8 @@ This function should only modify configuration layer settings."
      org
      outshine
      (python :variables
-             python-backend 'anaconda
-             ;; python-backend 'lsp
+             ;; python-backend 'anaconda
+             python-backend 'lsp python-lsp-server 'pylsp
              python-formatter 'black
              python-format-on-save t
              python-test-runner 'pytest)
