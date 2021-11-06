@@ -35,6 +35,14 @@
     'org-babel-load-languages
     '((python . t))))
 
+(with-eval-after-load 'org
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+
 ;; -------- org-journal
 
 (setq system-time-locale "en_US.UTF-8")

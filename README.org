@@ -161,6 +161,24 @@ We allow the evaluation of Python source code blocks in Org buffers:
 
 #+END_SRC
 
+By default org headers are shown in a larger font that non-header characters.
+The following snippet displays these headers in a font with the same size:
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(with-eval-after-load 'org
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+
+#+END_SRC
+This snippet is a slightly modified version of [[https://emacs.stackexchange.com/a/22589][this StackOverflow answer]]. The
+code in the original answer only (re)set the height when org-mode became active.
+That doesn't cut it for outline-minor-mode, which uses the same settings to
+display the headings.
+
 *** org-journal
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
