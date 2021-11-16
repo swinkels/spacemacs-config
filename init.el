@@ -90,7 +90,11 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(gtags org-bullets)
+   ;;
+   ;; helm-ls-git is excluded because it mangles the Magit key bindings in the
+   ;; interactive rebase buffer (and I don't use helm-ls-git anyway), see
+   ;; https://github.com/syl20bnr/spacemacs/issues/15089
+   dotspacemacs-excluded-packages '(gtags helm-ls-git org-bullets)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
