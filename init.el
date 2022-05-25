@@ -85,6 +85,7 @@ This function should only modify configuration layer settings."
    ;; comma.
    dotspacemacs-additional-packages
    `(
+     direnv
      geiser-guile
      guix
      (tox-pyvenv :location (recipe :fetcher github :repo "swinkels/tox-pyvenv"))
