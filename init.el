@@ -66,6 +66,7 @@ This function should only modify configuration layer settings."
              python-backend 'lsp python-lsp-server 'pylsp
              python-formatter 'black
              python-format-on-save t
+             python-sort-imports-on-save t
              python-test-runner 'pytest)
      restclient
      (shell :variables
