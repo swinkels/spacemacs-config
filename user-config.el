@@ -43,30 +43,6 @@
                   org-level-5))
     (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
 
-;; -------- org-journal
-
-(setq system-time-locale "en_US.UTF-8")
-
-(with-eval-after-load 'org-journal
-  (custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
-  (custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
-  (setq org-journal-date-format "%F, %A")
-
-  (add-to-list 'org-agenda-files org-journal-dir)
-
-  (setq org-journal-time-format "")
-
-  (defun add-time-as-orgmode-property()
-    (progn
-      (org-insert-property-drawer)
-      (org-entry-put (point) "Time" (format-time-string "%H:%M"))
-      (re-search-backward "^*")
-      (end-of-line)
-      )
-    )
-  (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
-)
-
 ;; -------- tox-pyvenv
 
 (use-package tox-pyvenv

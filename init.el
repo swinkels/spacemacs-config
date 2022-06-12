@@ -53,7 +53,13 @@ This function should only modify configuration layer settings."
      ;; nutter is a package to create and search notes in directories of org
      ;; files. It's a private layer, which are stored in ~/.emacs/private
      nutter
-     org
+     (org :variables
+          org-enable-org-journal-support t
+          org-journal-dir "~/repos/git/nutter-root/til"
+          org-journal-file-format "%Y%m%d.org"
+          org-journal-date-format "%F"
+          org-journal-time-format "")
+
      outshine
      (python :variables
              ;; python-backend 'anaconda

@@ -179,38 +179,6 @@ code in the original answer only (re)set the height when org-mode became active.
 That doesn't cut it for outline-minor-mode, which uses the same settings to
 display the headings.
 
-*** org-journal
-
-#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
-;; -------- org-journal
-
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
-(setq system-time-locale "en_US.UTF-8")
-
-(with-eval-after-load 'org-journal
-  (custom-set-variables '(org-journal-dir "~/repos/bitbucket.org/journal/"))
-  (custom-set-variables '(org-journal-file-format "%Y%m%d.org"))
-  (setq org-journal-date-format "%F, %A")
-
-  (add-to-list 'org-agenda-files org-journal-dir)
-
-  (setq org-journal-time-format "")
-
-  (defun add-time-as-orgmode-property()
-    (progn
-      (org-insert-property-drawer)
-      (org-entry-put (point) "Time" (format-time-string "%H:%M"))
-      (re-search-backward "^*")
-      (end-of-line)
-      )
-    )
-  (add-hook 'org-journal-after-entry-create-hook 'add-time-as-orgmode-property)
-)
-
-#+END_SRC
-
 *** tox-pyvenv
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
