@@ -46,6 +46,9 @@
                   org-level-5))
     (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
 
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+
 ;; -------- tox-pyvenv
 
 (use-package tox-pyvenv

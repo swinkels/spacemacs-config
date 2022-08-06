@@ -184,6 +184,17 @@ code in the original answer only (re)set the height when org-mode became active.
 That doesn't cut it for outline-minor-mode, which uses the same settings to
 display the headings.
 
+If you export an org document, it also exports the headers. If you only use
+headers to outline the document, you want to export the content of each section
+without the section title. Package ~ox-extra~ implements the functionality you
+to tag such headers using tag ~ignore~:
+
+#+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+
+#+END_SRC
+
 *** tox-pyvenv
 
 #+BEGIN_SRC emacs-lisp :noweb-ref Individual-packages
