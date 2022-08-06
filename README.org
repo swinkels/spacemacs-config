@@ -66,6 +66,11 @@ elm-mode. As I never use TAB to get a completion menu, I let TAB only indent:
 
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp :noweb-ref Miscellaneous
+;; use en_US to formatting time values, e.g. "[2022-06-14 Tue]"
+(setq system-time-locale "en_US.UTF-8")
+
+#+END_SRC
 For some reason the buffer list is ordered by the length of the buffer name once
 the user has entered a pattern. It allows for much more comfortable buffer
 switching if we maintain the standard most-recently-used ordering:

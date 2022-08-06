@@ -11,6 +11,9 @@
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
+;; use en_US to formatting time values, e.g. "[2022-06-14 Tue]"
+(setq system-time-locale "en_US.UTF-8")
+
 (defun sks-buffers-nosort-transformer (_ candidates _)
   candidates)
 
