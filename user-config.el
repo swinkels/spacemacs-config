@@ -20,11 +20,6 @@
 
 ;;; Individual-packages
 
-;;;; elm-mode
-
-(with-eval-after-load 'elm-format
-    (setq elm-format-on-save t))
-
 ;;;; helm-dash
 
 (use-package helm-dash
