@@ -26,6 +26,18 @@
 (with-eval-after-load 'elm-format
     (setq elm-format-on-save t))
 
+;; -------- helm-dash
+
+(use-package helm-dash
+  ;; don't load the package until you explicitly trigger its load, for example,
+  ;; when you call one of the autoloaded functions
+  :defer t
+  :init
+  ;; bind the following helm-dash functions before the package is loaded - note
+  ;; that these two functions are autoloaded
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "hd" 'helm-dash-at-point)
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "hD" 'helm-dash))
+
 ;; -------- lsp-mode
 
 (setq lsp-headerline-arrow ">")
@@ -48,6 +60,24 @@
 
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
+
+;; -------- projectile
+
+(defun my-projectile-toggle-between-implementation-and-test-other-window ()
+  (interactive)
+  (split-window-right-and-focus)
+  (projectile-toggle-between-implementation-and-test)
+  )
+
+(spacemacs/set-leader-keys
+  "pA"
+  'my-projectile-toggle-between-implementation-and-test-other-window)
+;; -------- pydor
+
+(use-package pydor
+  :commands (pydor-execute-doctest)
+  :init
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
 
 ;; -------- tox-pyvenv
 

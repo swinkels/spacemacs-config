@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(yaml
+   '(csv
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -50,9 +51,6 @@ This function should only modify configuration layer settings."
      lsp
      lua
      markdown
-     ;; nutter is a package to create and search notes in directories of org
-     ;; files. It's a private layer, which are stored in ~/.emacs/private
-     nutter
      (org :variables
           org-enable-org-journal-support t
           org-journal-dir "~/repos/git/nutter-root/til"
@@ -92,10 +90,17 @@ This function should only modify configuration layer settings."
    ;; comma.
    dotspacemacs-additional-packages
    `(
+     (dash-docs :location (recipe :fetcher github :repo "swinkels/dash-docs" :branch "avoid-cannot-open-message"))
      direnv
-     geiser-guile
-     guix
+     helm-dash
+     (pydor :location local)
      (tox-pyvenv :location (recipe :fetcher github :repo "swinkels/tox-pyvenv"))
+     ;; As documented by Spacemacs in ~/.emacs.d/private/local/README.md, the
+     ;; next entry adds ~/.emacs.d/private/local/winlay to the load-path. It
+     ;; does not actually load the package, which is done in
+     ;; ~/.spacemacs.d/user-config.el
+     (winlay :location local)
+     org-tree-slide
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -287,7 +292,7 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 10.0
+                               :size 11.0
                                :weight normal
                                :width normal)
 
@@ -613,10 +618,12 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blacken-only-if-project-is-blackened t)
+ '(compilation-window-height 20)
  '(cquery-extra-args
    '("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery"))
  '(eldoc-idle-delay 1.5)
  '(evil-want-Y-yank-to-eol t)
+ '(flycheck-disabled-checkers '(python-pylint))
  '(lsp-diagnostics-provider :none)
  '(lsp-enable-symbol-highlighting nil)
  '(lsp-headerline-breadcrumb-enable nil)
@@ -628,10 +635,13 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-signature-render-documentation nil)
  '(lsp-ui-doc-enable nil)
  '(lsp-ui-sideline-show-diagnostics nil)
+ '(magit-git-executable "/pkg/OSS-git-/2.29.1/x86_64-linux/bin/git")
+ '(magit-status-sections-hook
+   '(magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-untracked-files magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-unpushed-to-pushremote magit-insert-unpushed-to-upstream-or-recent magit-insert-unpulled-from-pushremote magit-insert-unpulled-from-upstream))
  '(nutter-root "~/repos/git/nutter-root")
  '(nutter-yasnippet-for-new-note "nutter note")
- '(org-agenda-files '("/home/swinkels/repos/git/sodalis/journal-pleio"))
- '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t)))
+ '(org-agenda-files '("/home/nxg00911/repos/journal-nxp"))
+ '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
  '(org-duration-format '((special . h:mm)))
  '(org-html-footnotes-section
    "<div id=\"footnotes\">
@@ -640,13 +650,21 @@ This function is called at the very end of Spacemacs initialization."
 %s
 </div>
 </div>")
+ '(org-link-file-path-type 'relative)
+ '(org-plantuml-jar-path "/home/nxg00911/tmp/plantuml.jar")
  '(org-src-preserve-indentation t)
  '(package-selected-packages
-   '(restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well guix yaml-mode posframe web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd dap-mode bui tree-mode counsel-gtags counsel swiper ivy add-node-modules-path yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-magit treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-treemacs lsp-python-ms lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish devdocs define-word cython-mode cquery cpp-auto-include company-statistics company-rtags company-lsp company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode ccls blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
+   '(flycheck-rust ron-mode rust-mode toml-mode csv-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well guix yaml-mode posframe web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd dap-mode bui tree-mode counsel-gtags counsel swiper ivy add-node-modules-path yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-magit treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-treemacs lsp-python-ms lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish devdocs define-word cython-mode cquery cpp-auto-include company-statistics company-rtags company-lsp company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode ccls blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
  '(projectile-switch-project-action 'magit-status)
  '(pytest-cmd-flags "-s")
  '(safe-local-variable-values
-   '((eval web-mode-set-engine "django")
+   '((dash-docs-docsets "Python-3.9" "Pandas-1.3")
+     (pydor-pythonpath-directories "/home/nxg00911/repos/nxp/pbsim2/source" "/home/nxg00911/repos/nxp/pbsim2")
+     (pydor-pythonpath-directories "/home/nxg00911/repos/nxp/pbsim2/source" "/home/nxg00911/repos/nxp/pbsim2/unit_tests")
+     (pydor-pythonpath-directories "/home/nxg00911/repos/nxp/pbsim2" "/home/nxg00911/repos/nxp/pbsim2/unit_tests")
+     (pydor-pythonpath-directories "/home/nxg00911/repos/nxp/pbsim2/unit_tests")
+     (pydor-pythonpath-directories "/home/nxg00911/repos/nxp/pbsim2")
+     (eval web-mode-set-engine "django")
      (python-sort-imports-on-save . t)
      (javascript-backend . tide)
      (javascript-backend . tern)
