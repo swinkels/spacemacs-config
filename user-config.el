@@ -1,12 +1,11 @@
-;; ---- Frame appearance
+;;; Frame appearance
 
-
-;; ---- Key bindings
+;;; Key bindings
 
 (global-set-key [f4]       'next-error)
 (setq tab-always-indent t)
 
-;; ---- Miscellaneous
+;;; Miscellaneous
 
 ;; enable word wrap
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -19,14 +18,14 @@
 
 (advice-add 'helm-buffers-sort-transformer :around 'sks-buffers-nosort-transformer)
 
-;; ---- Individual-packages
+;;; Individual-packages
 
-;; -------- elm-mode
+;;;; elm-mode
 
 (with-eval-after-load 'elm-format
     (setq elm-format-on-save t))
 
-;; -------- helm-dash
+;;;; helm-dash
 
 (use-package helm-dash
   ;; don't load the package until you explicitly trigger its load, for example,
@@ -38,11 +37,11 @@
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "hd" 'helm-dash-at-point)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "hD" 'helm-dash))
 
-;; -------- lsp-mode
+;;;; lsp-mode
 
 (setq lsp-headerline-arrow ">")
 
-;; -------- org-mode
+;;;; org-mode
 
 (with-eval-after-load 'org
   (require 'ob-python)
@@ -61,7 +60,7 @@
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
 
-;; -------- projectile
+;;;; projectile
 
 (defun my-projectile-toggle-between-implementation-and-test-other-window ()
   (interactive)
@@ -72,20 +71,21 @@
 (spacemacs/set-leader-keys
   "pA"
   'my-projectile-toggle-between-implementation-and-test-other-window)
-;; -------- pydor
+
+;;;; pydor
 
 (use-package pydor
   :commands (pydor-execute-doctest)
   :init
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
 
-;; -------- tox-pyvenv
+;;;; tox-pyvenv
 
 (use-package tox-pyvenv
   :commands (tox-pyvenv-activate)
   :init
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "vt" 'tox-pyvenv-activate))
 
-;; -------- terminals
+;;;; terminals
 
 (evil-set-initial-state 'term-mode 'emacs)
