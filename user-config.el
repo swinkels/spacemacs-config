@@ -2,8 +2,7 @@
 
 ;;; Key bindings
 
-(global-set-key [f4]       'next-error)
-(setq tab-always-indent t)
+(global-set-key [f4] 'next-error)
 
 ;;; Miscellaneous
 
