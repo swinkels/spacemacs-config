@@ -598,12 +598,18 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; Ideally I would load this file from the same directory as the current file
-  ;; but I don't know how to determine that directory using Emacs Lisp. Most of
-  ;; the times, if not all the time, the current file will be used from
-  ;; ~/.spacemacs.d, so I assume that directory is the right one.
-  (load "~/.spacemacs.d/user-config.el")
-  )
+  ;; I would like to load this file from the same directory as the current file
+  ;; but I don't know how to determine that directory (using Emacs Lisp). Most
+  ;; of the time, if not all the time, the current file will be used from the
+  ;; .spacemacs directory, so I assume that directory is the right one.
+  (let ((error-message "Unable to load user config")
+        (user-config-file (concat dotspacemacs-directory "user-config.el")))
+    (if dotspacemacs-directory
+        (if (file-exists-p user-config-file)
+            (load user-config-file)
+          (message "%s: file not present at %s" error-message user-config-file))
+      (message "%s: unable to determine .spacemacs directory" error-message)))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
