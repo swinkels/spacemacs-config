@@ -591,6 +591,26 @@ This function is called only while dumping Spacemacs configuration. You can
 dump."
 )
 
+(defun get-local-user-config-file (directory)
+  "Return path to local user config file when located in DIRECTORY.
+The local user config file holds that part of the Spacemacs user
+config that is specific to the current machine and user.
+
+The filename part of the path returned lacks the .el extension.
+Then, if you use 'load to load the file, it will try to load a
+.elc version first."
+  (concat directory
+          (car (split-string system-name "\\.")) "-user-config"))
+
+(defun get-user-config-file (directory)
+  "Return path to user config file when located in DIRECTORY.
+The user config file holds that part of the Spacemacs user config
+that is shared among all my Spacemacs installations.
+
+The filename part of the path returned lacks the .el extension.
+Then, if you use 'load to load the file, it will try to load a
+.elc version first."
+  (concat directory "user-config"))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -598,17 +618,15 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; I would like to load this file from the same directory as the current file
-  ;; but I don't know how to determine that directory (using Emacs Lisp). Most
-  ;; of the time, if not all the time, the current file will be used from the
-  ;; .spacemacs directory, so I assume that directory is the right one.
-  (let ((error-message "Unable to load user config")
-        (user-config-file (concat dotspacemacs-directory "user-config.el")))
-    (if dotspacemacs-directory
-        (if (file-exists-p user-config-file)
-            (load user-config-file)
-          (message "%s: file not present at %s" error-message user-config-file))
-      (message "%s: unable to determine .spacemacs directory" error-message)))
+  ;; I would like to load the user config files from the same directory as the
+  ;; current file but I don't know how to determine that directory (using Emacs
+  ;; Lisp). Most of the time, if not all the time, the current file will be used
+  ;; from the .spacemacs directory, so I assume that directory is the right one.
+  (if (not dotspacemacs-directory)
+      (message "Unable to load user configs: unknown .spacemacs directory")
+    ;; note 2nd parameter to function load: don't report error if non-nil
+    (load (get-local-user-config-file dotspacemacs-directory) t)
+    (load (get-user-config-file dotspacemacs-directory)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
