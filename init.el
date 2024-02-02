@@ -659,12 +659,10 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-signature-render-documentation nil)
  '(lsp-ui-doc-enable nil)
  '(lsp-ui-sideline-show-diagnostics nil)
- '(magit-git-executable "/pkg/OSS-git-/2.29.1/x86_64-linux/bin/git")
  '(magit-status-sections-hook
    '(magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-untracked-files magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-unpushed-to-pushremote magit-insert-unpushed-to-upstream-or-recent magit-insert-unpulled-from-pushremote magit-insert-unpulled-from-upstream))
  '(nutter-root "~/repos/git/nutter-root")
  '(nutter-yasnippet-for-new-note "nutter note")
- '(org-agenda-files '("/home/nxg00911/repos/journal-nxp"))
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
  '(org-duration-format '((special . h:mm)))
  '(org-html-footnotes-section
@@ -675,7 +673,6 @@ This function is called at the very end of Spacemacs initialization."
 </div>
 </div>")
  '(org-link-file-path-type 'relative)
- '(org-plantuml-jar-path "/home/nxg00911/tmp/plantuml.jar")
  '(org-src-preserve-indentation t)
  '(package-selected-packages
    '(flycheck-rust ron-mode rust-mode toml-mode csv-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well guix yaml-mode posframe web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd dap-mode bui tree-mode counsel-gtags counsel swiper ivy add-node-modules-path yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-magit treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-treemacs lsp-python-ms lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish devdocs define-word cython-mode cquery cpp-auto-include company-statistics company-rtags company-lsp company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode ccls blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
