@@ -53,7 +53,6 @@ This function should only modify configuration layer settings."
      markdown
      (org :variables
           org-enable-org-journal-support t
-          org-journal-dir "~/repos/git/nutter-root/til"
           org-journal-file-format "%Y%m%d.org"
           org-journal-date-format "%F"
           org-journal-time-format "")
@@ -672,8 +671,6 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-ui-sideline-show-diagnostics nil)
  '(magit-status-sections-hook
    '(magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-untracked-files magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-unpushed-to-pushremote magit-insert-unpushed-to-upstream-or-recent magit-insert-unpulled-from-pushremote magit-insert-unpulled-from-upstream))
- '(nutter-root "~/repos/git/nutter-root")
- '(nutter-yasnippet-for-new-note "nutter note")
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
  '(org-duration-format '((special . h:mm)))
  '(org-html-footnotes-section
