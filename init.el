@@ -669,8 +669,6 @@ This function is called at the very end of Spacemacs initialization."
  '(lsp-signature-render-documentation nil)
  '(lsp-ui-doc-enable nil)
  '(lsp-ui-sideline-show-diagnostics nil)
- '(magit-status-sections-hook
-   '(magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-untracked-files magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-unpushed-to-pushremote magit-insert-unpushed-to-upstream-or-recent magit-insert-unpulled-from-pushremote magit-insert-unpulled-from-upstream))
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
  '(org-duration-format '((special . h:mm)))
  '(org-html-footnotes-section
