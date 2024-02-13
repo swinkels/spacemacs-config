@@ -19,6 +19,17 @@
 
 ;;; Individual-packages
 
+;;;; helm-descbinds
+
+;; from https://github.com/syl20bnr/spacemacs/issues/16276#issuecomment-1939865121
+;;
+;; helm-descbinds-mode is activated by being on the helm-mode-hook. However,
+;; when activated, helm-descbinds-mode disables which-key-mode. So, adjust the
+;; hook to avoid activating it. See
+;; https://github.com/syl20bnr/spacemacs/issues/16276
+
+(remove-hook 'helm-mode-hook 'helm-descbinds-mode)
+
 ;;;; helm-dash
 
 (use-package helm-dash
