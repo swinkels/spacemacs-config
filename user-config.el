@@ -30,6 +30,17 @@
 
 (remove-hook 'helm-mode-hook 'helm-descbinds-mode)
 
+;; Commit 889145b of helm-descbinds, "Make display more fancy", adds some
+;; "fancy" formatting to display the key and its binding. For me, the formatting
+;; makes the list of keys and their bindings look messy and less clear. The next
+;; formatter restores the original, plain formatting.
+
+(defun format-helm-descbinds-candidate-as-is (key binding)
+  (format "%-10s\t%s" key binding))
+
+(custom-set-variables
+ '(helm-descbinds-candidate-formatter 'format-helm-descbinds-candidate-as-is))
+
 ;;;; helm-dash
 
 (use-package helm-dash
