@@ -3,36 +3,18 @@ Emacs.
 
 * Installation
 
+This configuration comes with two shell scripts:
+
+- emacs-nw :: starts the terminal version of Spacemacs
+- magit :: starts magit using the terminal version of Spacemasc
+
+Copy these scripts to a directory in your path, for example ~/.local/bin~.
+
 * User configuration
 
 You can find the user configuration in ~user-config.el~
 
 * Custom scripts
-
-I wrote two Bash shell scripts that use Emacs in the current terminal. The first
-script just starts Emacs:
-#+BEGIN_SRC sh :noweb tangle :tangle emacs-nw :tangle-mode (identity #o764)
-#!/bin/bash
-env TERM=xterm-256color emacsclient -nw -a "" "$@"
-#+END_SRC
-
-The following remarks are in order:
-1. The script starts emacsclient in the terminal, through =-nw=, and instructs
-   the client to start the Emacs daemon if none is running yet, through =-a ""=.
-2. Any parameters passed to the client are passed to the client, through ="$@"=.
-3. The script sets the TERM variable so Emacs knows it can use 256 colors: this
-   lets Spacemacs look fine in a terminal.
-
-The first step allows me to speed-up the Emacs startup time in the terminal,
-where I expect to use Emacs only for quick edits.
-
-I had to disable the start of the Emacs daemon by the graphical version of
-Emacs. I had to do this so the graphical version could run side-by-side with the
-terminal version. In general I only run one instance of the graphical version,
-so this is not a real limitation.
-
-One thing I still have to do is make sure that only the graphical version of
-Emacs modifies the list of recent files.
 
 The second script starts Emacs and starts magit for the current directory:
 #+BEGIN_SRC sh :noweb tangle :tangle magit :tangle-mode (identity #o764)

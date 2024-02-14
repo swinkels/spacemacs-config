@@ -1,2 +1,12 @@
 #!/bin/bash
-env TERM=xterm-256color emacsclient -nw -a "" "$@"
+
+# Start the terminal version of Emacs.
+#
+# This script
+# - sets the TERM variable so Emacs knows it can use 256 colors: this lets
+#   Spacemacs look fine in a terminal, and
+# - passes all parameters on to the terminal version of Emacs.
+
+# in the next line, "$@" means "expand all positional parameters to separate
+# words"
+env TERM=xterm-256color emacs --no-window-system "$@"
