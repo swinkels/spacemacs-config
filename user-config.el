@@ -57,6 +57,18 @@
 
 (setq lsp-headerline-arrow ">")
 
+;;;; magit
+
+(defun magit-yadm()
+  "Execute `magit-status' on the bare repo that yadm uses."
+  (interactive)
+  (magit-status "/yadm::"))
+
+(use-package magit
+  :defer t
+  :init
+  (spacemacs/set-leader-keys "gy" 'magit-yadm))
+
 ;;;; org-mode
 
 (with-eval-after-load 'org
@@ -105,3 +117,23 @@
 ;;;; terminals
 
 (evil-set-initial-state 'term-mode 'emacs)
+
+;;;; tramp
+
+;; We define tramp method "yadm" so magit can show the bare repo that yadm uses.
+;; Because I use Zsh, this only works as of yadm 3.0.0 due to yadm commit
+;; 8a3fb1a, December 29, 2020.
+;;
+;; To use it, execute `(magit-status "/yadm::")'. Section "magit" in this file
+;; defines function `magit-yadm' for that and binds it to a key.
+
+(use-package tramp
+  :defer t
+  :config
+  (add-to-list 'tramp-methods
+               '("yadm"
+                 (tramp-login-program "yadm")
+                 (tramp-login-args (("enter")))
+                 (tramp-login-env (("SHELL") ("/bin/sh")))
+                 (tramp-remote-shell "/bin/sh")
+                 (tramp-remote-shell-args ("-c")))))
