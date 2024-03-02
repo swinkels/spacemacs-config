@@ -1,5 +1,9 @@
 - [ ] describe installation in README.org
-- [ ] remove ~magit~ shell script as I don't use it
+- [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
 
-When I use the script, which is mostly for testing purposes, it's prone to
-corrupting the display of characters in the terminal.
+* [2024-03-02 Sat]
+
+- [X] remove ~magit~ shell script
+
+I have never used this script "in production". I only used it to test it and
+even then it was prone to corrupting the display of characters in the terminal.
