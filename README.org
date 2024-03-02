@@ -1,11 +1,11 @@
 This repo contains my personal configuration of the [[http://spacemacs.org/][Spacemacs]] distribution of
-Emacs.
+Emacs. The config is maintained for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/2dadee57110fc9db43756fcad08af9ac3ae7c9fa][2dadee7]], 1 February 2024.
 
 * Installation
 
 This configuration comes with two shell scripts:
 
-- emacs-nw :: starts the terminal version of Spacemacs
+- emacs-nw :: Start a terminal Emasc session to a running Emacs instance
 - magit :: starts magit using the terminal version of Spacemasc
 
 Copy these scripts to a directory in your path, for example ~/.local/bin~.
