@@ -1,15 +1,47 @@
 This repo contains my personal configuration of the [[http://spacemacs.org/][Spacemacs]] distribution of
-Emacs.
-
-This config is maintained for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/2dadee57110fc9db43756fcad08af9ac3ae7c9fa][2dadee7]], 1 February 2024, and in
-use with Emacs version 28.2.
+Emacs. I maintain this config for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/2dadee57110fc9db43756fcad08af9ac3ae7c9fa][2dadee5]], 1 February 2024, and
+use it with Emacs version 28.2.
 
 * Installation
 
-This configuration comes with shell script ~emacs-nw~ to start a terminal Emacs
-session to a running Emacs instance. To install it, copy it to a directory in
-your path, for example ~/.local/bin~.
+To install my configuration, you have to install Spacemacs first. To do so,
+clone Spacemacs to ~$HOME/.emacs.d~ and checkout the correct commit[fn:1]:
+#+begin_src bash
+git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
+cd ~/.emacs.d && git checkout 2dadee5
+#+end_src
+Spacemacs is an extensive, unifying layer on top of (literally) hundreds of
+other packages, most of which are being developed independently of Spacemacs.
+What you've cloned just now is "only" the code for the Spacemacs layer, not the
+dependent packages.
+
+Next, clone the current repo to ~$HOME/.spacemacs.d~:
+#+begin_src bash
+git clone develop https://github.com/syl20bnr/spacemacs.git ~/.spacemacs.d
+#+end_src
+The rest of this README uses ~.spacemacs.d~ for ~$HOME/.spacemacs.d~.
+
+Now, when you start Emacs, it will automatically download and install all
+dependent packages.
 
 * User configuration
 
-You can find the user configuration in ~user-config.el~
+Spacemacs picks up the following files from ~.spacemacs.d~:
+
+- ~init.el~ :: This files is the so-called Spacemacs dotfile. It configures
+  several high-level aspects of Spacemacs, such as layers to use, default
+  editing style and use of a startup banner. It also stores the persistent
+  settings from the Customize interface.
+- ~user-config.el~ :: This file mostly contains key bindings and package
+  configuration that cannot be done via the Customize interface.
+
+~.spacemacs.d~ also contains the shell script ~emacs-nw~, which starts a
+terminal Emacs session to a running Emacs instance. If not Emacs instance is
+running, it will start one. To install the script, copy it to a directory in
+your path, for example ~/.local/bin~.
+
+* Footnotes
+
+[fn:1] This command checks out branch ~main~ of this repo, which will be the
+  right branch /most of the times/. This repo also has a branch ~develop~, which
+  I use to update my config for newer versions of Spacemacs or Emacs.

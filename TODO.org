@@ -1,5 +1,11 @@
-- [ ] describe installation in README.org
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
+- [ ] update config for latest Emacs version on Guix
+- [ ] merge ~develop~ branch to ~main~
+- [ ] describe update of Git submodule snippets
+
+* [2024-03-04 Mon]
+
+- [X] describe installation in README.org
 
 * [2024-03-02 Sat]
 
