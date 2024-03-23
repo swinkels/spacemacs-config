@@ -25,7 +25,7 @@ Now, when you start Emacs, it will automatically download and install all
 dependent packages.
 
 The above command also clones [[https://github.com/swinkels/yasnippets][my YASnippet files]] as a Git submodule to
-subdirectory ~snippets~[fn:2]. Spacemancs will automatically pick them up from
+subdirectory ~snippets~[fn:2]. Spacemacs will automatically pick them up from
 this directory. The use of Git submodules is a story in itself and I'm still on
 the fence if an ordinary subdirectory with its own Git repo would not be easier.
 When in doubt, treat ~snippets~ as any subdirectory with its own Git repo, for
@@ -35,12 +35,17 @@ example, a ~git pull~ in that directory will retrieve my latest snippets.
 
 Spacemacs picks up the following files from ~.spacemacs.d~:
 
-- ~init.el~ :: This files is the so-called Spacemacs dotfile. It configures
+- ~init.el~ :: This file is the so-called Spacemacs dotfile. It configures
   several high-level aspects of Spacemacs, such as layers to use, default
   editing style and use of a startup banner. It also stores the persistent
   settings from the Customize interface.
-- ~user-config.el~ :: This file mostly contains key bindings and package
-  configuration that cannot be done via the Customize interface.
+- ~<current-machine-name>-user-config.el~ :: This optional file contains
+  configurations that are only relevant for the current machine. For example,
+  variables that contain local paths.
+- ~user-config.el~ :: This file contains configuration that cannot be done via
+  the Customize interface, or cannot be done easily via that interface. For
+  example, custom key bindings and workarounds for issues in third-party
+  packages.
 
 ~.spacemacs.d~ also contains the shell script ~emacs-nw~, which starts a
 terminal Emacs session to a running Emacs instance. If not Emacs instance is
