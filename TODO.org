@@ -1,7 +1,12 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
 - [ ] update config for latest Emacs version on Guix
+- [ ] make ~main~ the default branch
 - [ ] merge ~develop~ branch to ~main~
-- [ ] describe update of Git submodule snippets
+- [ ] describe file to load local changes
+
+* [2024-03-23 Sat]
+
+- [X] describe update of Git submodule snippets
 
 * [2024-03-04 Mon]
 
