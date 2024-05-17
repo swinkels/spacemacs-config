@@ -1,10 +1,17 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
 - [ ] update config for latest Emacs version on Guix
-- [ ] make ~main~ the default branch
-- [ ] merge ~develop~ branch to ~main~
+
+* [2024-05-17 Fri]
+
+- [X] move custom settings to machine local file
 
 * [2024-03-23 Sat]
 
+- [ ] make ~main~ the default branch
+
+It turned out this was already the default branch.
+
+- [X] merge ~develop~ branch to ~main~
 - [X] describe file to load local changes
 - [X] describe update of Git submodule snippets
 
