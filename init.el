@@ -661,6 +661,7 @@ This function is called at the very end of Spacemacs initialization."
  '(eldoc-idle-delay 1.5)
  '(evil-want-Y-yank-to-eol t)
  '(flycheck-disabled-checkers '(python-pylint))
+ '(helm-descbinds-candidate-formatter 'format-helm-descbinds-candidate-as-is)
  '(helm-display-header-line nil)
  '(helm-move-to-line-cycle-in-source nil)
  '(lsp-diagnostics-provider :none)
