@@ -611,8 +611,7 @@ config that is specific to the current machine and user.
 The filename part of the path returned lacks the .el extension.
 Then, if you use 'load to load the file, it will try to load a
 .elc version first."
-  (concat directory
-          (car (split-string system-name "\\.")) "-user-config"))
+  (concat directory "user-config-" (car (split-string system-name "\\."))))
 
 (defun get-user-config-file (directory)
   "Return path to user config file when located in DIRECTORY.
