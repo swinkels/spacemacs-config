@@ -73,8 +73,8 @@
 (with-eval-after-load 'org
   (require 'ob-python)
   (org-babel-do-load-languages
-    'org-babel-load-languages
-    '((python . t))))
+   'org-babel-load-languages
+   '((python . t))))
 
 (with-eval-after-load 'org
   (dolist (face '(org-level-1
@@ -104,7 +104,7 @@
 (use-package pydor
   :commands (pydor-execute-doctest)
   :init
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
 
 ;;;; spaceline
 
@@ -122,7 +122,7 @@
 (use-package tox-pyvenv
   :commands (tox-pyvenv-activate)
   :init
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode "vt" 'tox-pyvenv-activate))
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "vt" 'tox-pyvenv-activate))
 
 ;;;; terminals
 
@@ -147,3 +147,11 @@
                  (tramp-login-env (("SHELL") ("/bin/sh")))
                  (tramp-remote-shell "/bin/sh")
                  (tramp-remote-shell-args ("-c")))))
+
+;;;; windows-purpose
+
+;; let windows-purpose use the same window for pytest compilation buffers as for
+;; "ordinary" compilation buffers
+
+(add-to-list 'purpose-user-regexp-purposes '("^\\*pytest-" . logs))
+(purpose-compile-user-configuration)
