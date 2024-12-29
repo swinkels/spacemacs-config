@@ -94,3 +94,11 @@
 ;;;; terminals
 
 (evil-set-initial-state 'term-mode 'emacs)
+
+;;;; windows-purpose
+
+;; let windows-purpose use the same window for pytest compilation buffers as for
+;; "ordinary" compilation buffers
+
+(add-to-list 'purpose-user-regexp-purposes '("^\\*pytest-" . logs))
+(purpose-compile-user-configuration)
