@@ -664,6 +664,7 @@ This function is called at the very end of Spacemacs initialization."
  '(nutter-root "~/repos/git/nutter-root")
  '(nutter-yasnippet-for-new-note "nutter note")
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
+ '(org-deadline-warning-days 12)
  '(org-duration-format '((special . h:mm)))
  '(org-html-footnotes-section
    "<div id=\"footnotes\">
