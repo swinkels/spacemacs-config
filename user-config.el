@@ -73,6 +73,17 @@
   :init
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
 
+;;;; spaceline
+
+;; Hide the minor mode indicators from the Spacemacs modeline.
+;;
+;; The icons used for these indicators are difficult to read on a 22" full HD
+;; monitor. And even if you can read them, their single-character abbreviations
+;; are uninformative.
+
+(with-eval-after-load 'spaceline
+  (setq spaceline-minor-modes-p nil))
+
 ;;;; tox-pyvenv
 
 (use-package tox-pyvenv
