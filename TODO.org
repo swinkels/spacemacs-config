@@ -1,5 +1,12 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
-- [ ] update config for latest Emacs version on Guix
+- [ ] remove warning about orphan packages
+
+* [2024-12-30 Mon]
+
+- [X] update config for latest Emacs version on Guix
+
+I updated spacemacs to commit abba23b6 from 25 December 2024 and used Emacs 29.4
+for that.
 
 * [2024-05-17 Fri]
 
