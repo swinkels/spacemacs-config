@@ -96,7 +96,9 @@ This function should only modify configuration layer settings."
    `(
      (dash-docs :location (recipe :fetcher github :repo "swinkels/dash-docs" :branch "avoid-cannot-open-message"))
      direnv
+     geiser ;; system package that comes with Guix package guile
      helm-dash
+     mu4e ;; system package that comes with Guix package mu
      (pydor :location local)
      (tox-pyvenv :location (recipe :fetcher github :repo "swinkels/tox-pyvenv"))
      ;; As documented by Spacemacs in ~/.emacs.d/private/local/README.md, the
@@ -667,7 +669,7 @@ before packages are loaded."
     ;; note 2nd parameter to function load: don't report error if non-nil
     (load (get-local-user-config-file dotspacemacs-directory) t)
     (load (get-user-config-file dotspacemacs-directory)))
-)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -677,61 +679,61 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blacken-only-if-project-is-blackened t)
- '(compilation-window-height 20)
- '(cquery-extra-args
-   '("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery"))
- '(eldoc-idle-delay 1.5)
- '(evil-want-Y-yank-to-eol t)
- '(flycheck-disabled-checkers '(python-pylint))
- '(helm-descbinds-candidate-formatter 'format-helm-descbinds-candidate-as-is)
- '(helm-display-header-line nil)
- '(helm-move-to-line-cycle-in-source nil)
- '(lsp-diagnostics-provider :none)
- '(lsp-enable-symbol-highlighting nil)
- '(lsp-headerline-breadcrumb-enable nil)
- '(lsp-pylsp-plugins-flake8-enabled nil)
- '(lsp-pylsp-plugins-mccabe-enabled nil)
- '(lsp-pylsp-plugins-pycodestyle-enabled nil)
- '(lsp-pylsp-plugins-pyflakes-enabled nil)
- '(lsp-signature-auto-activate '(:on-trigger-char :after-completion))
- '(lsp-signature-render-documentation nil)
- '(lsp-ui-doc-enable nil t)
- '(lsp-ui-sideline-show-diagnostics nil)
- '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
- '(org-duration-format '((special . h:mm)))
- '(org-html-footnotes-section
-   "<div id=\"footnotes\">
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(blacken-only-if-project-is-blackened t)
+   '(compilation-window-height 20)
+   '(cquery-extra-args
+     '("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery"))
+   '(eldoc-idle-delay 1.5)
+   '(evil-want-Y-yank-to-eol t)
+   '(flycheck-disabled-checkers '(python-pylint))
+   '(helm-descbinds-candidate-formatter 'format-helm-descbinds-candidate-as-is)
+   '(helm-display-header-line nil)
+   '(helm-move-to-line-cycle-in-source nil)
+   '(lsp-diagnostics-provider :none)
+   '(lsp-enable-symbol-highlighting nil)
+   '(lsp-headerline-breadcrumb-enable nil)
+   '(lsp-pylsp-plugins-flake8-enabled nil)
+   '(lsp-pylsp-plugins-mccabe-enabled nil)
+   '(lsp-pylsp-plugins-pycodestyle-enabled nil)
+   '(lsp-pylsp-plugins-pyflakes-enabled nil)
+   '(lsp-signature-auto-activate '(:on-trigger-char :after-completion))
+   '(lsp-signature-render-documentation nil)
+   '(lsp-ui-doc-enable nil t)
+   '(lsp-ui-sideline-show-diagnostics nil)
+   '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
+   '(org-duration-format '((special . h:mm)))
+   '(org-html-footnotes-section
+     "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s </h2>
 <div id=\"text-footnotes\">
 %s
 </div>
 </div>")
- '(org-link-file-path-type 'relative)
- '(org-src-preserve-indentation t)
- '(package-selected-packages
-   '(rustic xref flycheck-rust ron-mode rust-mode toml-mode csv-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well guix yaml-mode posframe web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd dap-mode bui tree-mode counsel-gtags counsel swiper ivy add-node-modules-path yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-magit treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-treemacs lsp-python-ms lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish devdocs define-word cython-mode cquery cpp-auto-include company-statistics company-rtags company-lsp company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode ccls blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
- '(projectile-switch-project-action 'magit-status)
- '(pytest-cmd-flags "-s")
- '(shell-pop-autocd-to-working-dir nil)
- '(treemacs-no-png-images t)
- '(undo-tree-auto-save-history nil)
- '(undo-tree-limit 800000)
- '(undo-tree-outer-limit 120000000)
- '(undo-tree-strong-limit 12000000)
- '(warning-minimum-level :error)
- '(web-mode-enable-auto-closing t)
- '(web-mode-enable-auto-pairing t)
- '(web-mode-enable-auto-quoting t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-)
+   '(org-link-file-path-type 'relative)
+   '(org-src-preserve-indentation t)
+   '(package-selected-packages
+     '(rustic xref flycheck-rust ron-mode rust-mode toml-mode csv-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well guix yaml-mode posframe web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd dap-mode bui tree-mode counsel-gtags counsel swiper ivy add-node-modules-path yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-magit treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-treemacs lsp-python-ms lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish devdocs define-word cython-mode cquery cpp-auto-include company-statistics company-rtags company-lsp company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode ccls blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
+   '(projectile-switch-project-action 'magit-status)
+   '(pytest-cmd-flags "-s")
+   '(shell-pop-autocd-to-working-dir nil)
+   '(treemacs-no-png-images t)
+   '(undo-tree-auto-save-history nil)
+   '(undo-tree-limit 800000)
+   '(undo-tree-outer-limit 120000000)
+   '(undo-tree-strong-limit 12000000)
+   '(warning-minimum-level :error)
+   '(web-mode-enable-auto-closing t)
+   '(web-mode-enable-auto-pairing t)
+   '(web-mode-enable-auto-quoting t))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+  )

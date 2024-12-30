@@ -1,7 +1,15 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
-- [ ] remove warning about orphan packages
 
 * [2024-12-30 Mon]
+
+- [X] remove warning about orphan packages
+
+On Spacemacs startup, Spacemacs mentioned it would delete 2 orphan packages,
+~guile~ and ~mu4e~. These are system packages that come with Guix packages and
+the deletion would (silently) fail. Spacemacs would try again the next time it
+started. I've added both packages to ~dotspacemacs-additional-packages~ so
+Spacemacs leaves them alone.
+
 
 - [X] update config for latest Emacs version on Guix
 
