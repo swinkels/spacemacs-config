@@ -44,8 +44,6 @@ This function should only modify configuration layer settings."
      auto-completion
      ;; better-defaults
      compleseus
-     c-c++
-     (c-c++ :variables c-c++-backend 'lsp-ccls)
      emacs-lisp
      javascript
      git
