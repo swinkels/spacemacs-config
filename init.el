@@ -43,12 +43,12 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
+     compleseus
      c-c++
      (c-c++ :variables c-c++-backend 'lsp-ccls)
      emacs-lisp
      javascript
      git
-     helm
      html
      lsp
      lua
@@ -705,15 +705,11 @@ This function is called at the very end of Spacemacs initialization."
    '(lsp-signature-render-documentation nil)
    '(lsp-ui-doc-enable nil t)
    '(lsp-ui-sideline-show-diagnostics nil)
+   '(marginalia-align 'left)
    '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
    '(org-duration-format '((special . h:mm)))
    '(org-html-footnotes-section
-     "<div id=\"footnotes\">
-<h2 class=\"footnotes\">%s </h2>
-<div id=\"text-footnotes\">
-%s
-</div>
-</div>")
+     "<div id=\"footnotes\">\12<h2 class=\"footnotes\">%s </h2>\12<div id=\"text-footnotes\">\12%s\12</div>\12</div>")
    '(org-link-file-path-type 'relative)
    '(org-src-preserve-indentation t)
    '(package-selected-packages
