@@ -705,6 +705,7 @@ This function is called at the very end of Spacemacs initialization."
    '(lsp-ui-sideline-show-diagnostics nil)
    '(marginalia-align 'left)
    '(org-babel-load-languages '((shell . t) (emacs-lisp . t) (python . t) (plantuml . t)))
+   '(org-deadline-warning-days 12)
    '(org-duration-format '((special . h:mm)))
    '(org-html-footnotes-section
      "<div id=\"footnotes\">\12<h2 class=\"footnotes\">%s </h2>\12<div id=\"text-footnotes\">\12%s\12</div>\12</div>")
