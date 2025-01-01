@@ -59,11 +59,14 @@ This function should only modify configuration layer settings."
 
      outshine
      (python :variables
-             ;; python-backend 'anaconda
              python-backend 'lsp
              python-lsp-server 'pylsp
              python-format-on-save t
-             python-sort-imports-on-save t
+             ;; Do not isort on save
+             ;;
+             ;; The next option, which is t by default, configures an isort on
+             ;; save. We don't want that as we'll use ruff for that.
+             python-sort-imports-on-save nil
              python-test-runner 'pytest)
      restclient
      rust ;; for toml-mode
