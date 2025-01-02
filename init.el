@@ -700,6 +700,7 @@ This function is called at the very end of Spacemacs initialization."
    '(lsp-diagnostics-provider :none)
    '(lsp-enable-symbol-highlighting nil)
    '(lsp-headerline-breadcrumb-enable nil)
+   '(lsp-modeline-code-actions-segments '(count))
    '(lsp-pylsp-plugins-flake8-enabled nil)
    '(lsp-pylsp-plugins-mccabe-enabled nil)
    '(lsp-pylsp-plugins-pycodestyle-enabled nil)
