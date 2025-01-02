@@ -1,4 +1,9 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
+- [ ] support dash using compleseus
+- [ ] allow machine-dependent excluded packages
+- [ ] allow machine-dependent additional packages
+- [ ] allow machine-dependent font size
+- [ ] fix icon for LSP actions on modeline
 
 * [2025-01-02 Thu]
 
