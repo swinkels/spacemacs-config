@@ -21,15 +21,6 @@
 
 ;;;; helm-descbinds
 
-;; from https://github.com/syl20bnr/spacemacs/issues/16276#issuecomment-1939865121
-;;
-;; helm-descbinds-mode is activated by being on the helm-mode-hook. However,
-;; when activated, helm-descbinds-mode disables which-key-mode. So, adjust the
-;; hook to avoid activating it. See
-;; https://github.com/syl20bnr/spacemacs/issues/16276
-
-(remove-hook 'helm-mode-hook 'helm-descbinds-mode)
-
 ;; Commit 889145b of helm-descbinds, "Make display more fancy", adds some
 ;; "fancy" formatting to display the key and its binding. For me, the formatting
 ;; makes the list of keys and their bindings look messy and less clear. The next

@@ -1,5 +1,9 @@
 - [ ] add new option to ~emacs-nw~ script to *not* start Emacs daemon
 
+* [2025-01-02 Thu]
+
+- [X] remove workaround for [[https://github.com/syl20bnr/spacemacs/issues/16276][spacemacs#16276]], "Keyboard + Command hints stop showing"
+
 * [2024-12-30 Mon]
 
 - [X] remove warning about orphan packages
