@@ -1,2 +1,5 @@
 *~
 *.elc
+
+# machine-specific configuration files
+/user-config-*.el
