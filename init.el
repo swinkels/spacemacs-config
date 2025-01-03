@@ -688,6 +688,7 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(blacken-only-if-project-is-blackened t)
+   '(compilation-max-output-line-length nil)
    '(compilation-window-height 20)
    '(cquery-extra-args
      '("--log-file=/home/vagrant/tmp/cq.log" "--record=/tmp/cquery"))
