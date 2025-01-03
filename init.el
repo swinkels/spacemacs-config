@@ -66,8 +66,9 @@ This function should only modify configuration layer settings."
              python-format-on-save t
              ;; Do not isort on save
              ;;
-             ;; The next option, which is t by default, configures an isort on
-             ;; save. We don't want that as we'll use ruff for that.
+             ;; The next option, which is t by default, configures the use of
+             ;; the command-line isort to sort the imports on save. We rather
+             ;; leave that up to pylsp or ruff.
              python-sort-imports-on-save nil
              python-test-runner 'pytest)
      restclient
@@ -703,6 +704,7 @@ This function is called at the very end of Spacemacs initialization."
    '(lsp-headerline-breadcrumb-enable nil)
    '(lsp-modeline-code-actions-segments '(count))
    '(lsp-pylsp-plugins-flake8-enabled nil)
+   '(lsp-pylsp-plugins-isort-enabled t)
    '(lsp-pylsp-plugins-mccabe-enabled nil)
    '(lsp-pylsp-plugins-pycodestyle-enabled nil)
    '(lsp-pylsp-plugins-pyflakes-enabled nil)
