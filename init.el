@@ -43,9 +43,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
-     (compleseus :variables
-                 ;; immediately show preview of candidate
-                 compleseus-consult-preview-keys 'any)
+     compleseus
      emacs-lisp
      javascript
      git

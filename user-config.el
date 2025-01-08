@@ -19,6 +19,29 @@
 
 ;;; Individual-packages
 
+;;;; consult
+
+(use-package consult
+  :defer t
+  :config
+  (consult-customize
+   ;; only preview when using the consult version of occur
+   ;;
+   ;; If you preview everything, moving the candidate will visit uninteresting
+   ;; files that may trigger expensive package initializations. This setting
+   ;; activates the preview for existing buffers.
+   consult-line
+   ;; Spacemacs wraps consult-line and you also have to set the preview key on
+   ;; the wrappers. The next wrappers are the ones I use most.
+   spacemacs/consult-line
+   spacemacs/consult-line-symbol :preview-key '(:debounce 0.2 any)
+   ;; show the complete path for each reference
+   ;;
+   ;; This disables the grouping of xrefs by file. If consult groups the xrefs,
+   ;; the minibuffer looks crowded and it's less clear where each reference
+   ;; comes from. This might also depends on the color theme you're using.
+   consult-xref :group nil))
+
 ;;;; helm-descbinds
 
 ;; Commit 889145b of helm-descbinds, "Make display more fancy", adds some
