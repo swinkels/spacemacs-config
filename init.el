@@ -60,6 +60,11 @@ This function should only modify configuration layer settings."
 
      outshine
      (python :variables
+             ;; Do NOT auto-activate the virtualenv for the current file!
+             ;;
+             ;; Its default value of 'on-visit lead to quite the WTF when it
+             ;; sneakily switched away from the active virtualenv.
+             python-auto-set-local-pyvenv-virtualenv nil
              python-backend 'lsp
              python-lsp-server 'pylsp
              python-format-on-save t
