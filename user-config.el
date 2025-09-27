@@ -1,3 +1,11 @@
+;;; Require personal configs and packages
+
+(add-to-list 'load-path (file-name-concat dotspacemacs-directory "my-package-configs"))
+
+(require 'mpc-denote)
+(require 'mpc-python)
+(require 'mpc-treesit)
+
 ;;; Frame appearance
 
 ;;; Key bindings
@@ -112,13 +120,6 @@
 (spacemacs/set-leader-keys
   "pA"
   'my-projectile-toggle-between-implementation-and-test-other-window)
-
-;;;; pydor
-
-(use-package pydor
-  :commands (pydor-execute-doctest)
-  :init
-  (spacemacs/set-leader-keys-for-major-mode 'python-mode "td" 'pydor-execute-doctest))
 
 ;;;; spaceline
 
