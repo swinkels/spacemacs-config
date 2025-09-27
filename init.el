@@ -106,14 +106,12 @@ This function should only modify configuration layer settings."
      direnv
      helm-dash
      mu4e ;; system package that comes with Guix package mu
-     (pydor :location local)
-     (orgox :location local) ; to publish my notes
-     (tox-pyvenv :location (recipe :fetcher github :repo "swinkels/tox-pyvenv"))
+     (pydor :location (recipe :fetcher github :repo "swinkels/pydor"))
      ;; As documented by Spacemacs in ~/.emacs.d/private/local/README.md, the
-     ;; next entry adds ~/.emacs.d/private/local/winlay to the load-path. It
-     ;; does not actually load the package, which is done in
-     ;; ~/.spacemacs.d/user-config.el
-     (winlay :location local)
+     ;; next entry adds ~/.emacs.d/private/local/orgox to the load-path. It does
+     ;; not actually load the package, which is done in
+     ;; .spacemacs.d/user-config.el
+     (orgox :location local) ; to publish my notes
      org-tree-slide
      )
    ;; A list of packages that cannot be updated.
