@@ -6,6 +6,10 @@
 (require 'mpc-python)
 (require 'mpc-treesit)
 
+(add-to-list 'load-path (file-name-concat dotspacemacs-directory "my-lisp"))
+
+(require 'ml-org)
+
 ;;; Frame appearance
 
 ;;; Key bindings

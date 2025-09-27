@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp -*-
+
+(package "sks-org"
+         "0.0.1"
+         "Improvements to my org-mode workflow")
+
+(website-url "")
+(keywords )
+
+(package-file "sks-org.el")
+
+(script "test" "echo \"Error: no test specified\" && exit 1")
+
+(source "gnu")
+
+(depends-on "emacs" "29.4")
