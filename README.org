@@ -1,6 +1,6 @@
 This repo contains my personal configuration of the [[http://spacemacs.org/][Spacemacs]] distribution of
-Emacs. I maintain this config for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/abba23b614ab12c69b01d8db364f493155e08d4a][abba23b6]], 25 December 2024,
-and use it with Emacs version 29.4.
+Emacs. I maintain this config for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/e51391fa2a4b63120960a5bf1e14d38e370a5511][e51391fa]], 27 September 2025,
+and use it with Emacs version 30.2.
 
 * Installation
 
