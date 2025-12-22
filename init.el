@@ -66,6 +66,7 @@ This function should only modify configuration layer settings."
              ;; sneakily switched away from the active virtualenv.
              python-auto-set-local-pyvenv-virtualenv nil
              python-backend 'lsp
+             python-enable-tools '(uv)
              python-lsp-server 'pylsp
              python-format-on-save t
              ;; Do not isort on save
