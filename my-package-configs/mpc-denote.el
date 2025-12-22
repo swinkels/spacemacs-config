@@ -7,9 +7,10 @@
 ;; configure them here:
 ;;
 ;; - denote-directory :: directory that stores the notes
+;; - denote-known-keywords :: list of predefined keywords (tags)
 
 (use-package denote
-  :ensure t
+  :defer t
   :init
   (spacemacs/declare-prefix "aD" "denote")
   (spacemacs/set-leader-keys
@@ -20,7 +21,6 @@
     "aDR" 'denote-rename-file-using-front-matter)
   :config
   (denote-rename-buffer-mode 1)
-  :custom (denote-known-keywords '("emacs" "design" "python" "book" "post" "video"))
   :hook (dired-mode . denote-dired-mode))
 
 (provide 'mpc-denote)

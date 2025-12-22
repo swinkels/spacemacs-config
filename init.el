@@ -103,9 +103,9 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages
    `(
      (dash-docs :location (recipe :fetcher github :repo "swinkels/dash-docs" :branch "avoid-cannot-open-message"))
+     denote
      direnv
      helm-dash
-     mu4e ;; system package that comes with Guix package mu
      (pydor :location (recipe :fetcher github :repo "swinkels/pydor"))
      ;; As documented by Spacemacs in ~/.emacs.d/private/local/README.md, the
      ;; next entry adds ~/.emacs.d/private/local/orgox to the load-path. It does
