@@ -3,6 +3,7 @@
 (add-to-list 'load-path (file-name-concat dotspacemacs-directory "my-package-configs"))
 
 (require 'mpc-denote)
+(require 'mpc-flyspell)
 (require 'mpc-python)
 (require 'mpc-treesit)
 
