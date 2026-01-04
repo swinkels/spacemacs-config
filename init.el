@@ -81,8 +81,7 @@ This function should only modify configuration layer settings."
      rust ;; for toml-mode
      (shell :variables
             shell-default-height 30
-            shell-default-position 'bottom
-            shell-default-shell 'vterm)
+            shell-default-position 'bottom)
      spell-checking
      syntax-checking
      (version-control :variables
