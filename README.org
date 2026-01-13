@@ -8,7 +8,7 @@ To install my configuration, you have to install Spacemacs first. To do so,
 clone Spacemacs to ~$HOME/.emacs.d~ and checkout the correct commit[fn:1]:
 #+begin_src bash
 git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
-cd ~/.emacs.d && git checkout 2dadee5
+cd ~/.emacs.d && git checkout e51391fa
 #+end_src
 Spacemacs is an extensive, unifying layer on top of (literally) hundreds of
 other packages, most of which are being developed independently of Spacemacs.
@@ -17,19 +17,20 @@ dependent packages.
 
 Next, clone the current repo to ~$HOME/.spacemacs.d~:
 #+begin_src bash
-git clone develop https://github.com/syl20bnr/spacemacs.git ~/.spacemacs.d
+git clone --recursive https://github.com/swinkels/spacemacs-config.git ~/.spacemacs.d
 #+end_src
 The rest of this README uses ~.spacemacs.d~ for ~$HOME/.spacemacs.d~.
 
 Now, when you start Emacs, it will automatically download and install all
 dependent packages.
 
-The above command also clones [[https://github.com/swinkels/yasnippets][my YASnippet files]] as a Git submodule to
-subdirectory ~snippets~[fn:2]. Spacemacs will automatically pick them up from
-this directory. The use of Git submodules is a story in itself and I'm still on
-the fence if an ordinary subdirectory with its own Git repo would not be easier.
-When in doubt, treat ~snippets~ as any subdirectory with its own Git repo, for
-example, a ~git pull~ in that directory will retrieve my latest snippets.
+The above clone command uses option ~--recursive~ to also clone [[https://github.com/swinkels/yasnippets][my YASnippet
+files]] [fn:2] as a Git submodule to subdirectory ~snippets~. Spacemacs will
+automatically pick them up from this directory. The use of Git submodules is a
+story in itself and I'm still on the fence if an ordinary subdirectory with its
+own Git repo would not be easier. When in doubt, treat ~snippets~ as any
+subdirectory with its own Git repo, for example, a ~git pull~ in that directory
+will retrieve my latest snippets.
 
 * User configuration
 
