@@ -82,7 +82,24 @@
 
 ;;;; lsp-mode
 
-(setq lsp-headerline-arrow ">")
+;; After I updated Spacemacs to `4d7c01d3e` (February 20, 2026), flycheck mode
+;; wasn't enabled anymore in Python buffers. When I manually enabled flycheck
+;; mode in such a buffer, the error list showed the errors were provided by LSP
+;; instead of the expected command-line utilities `python-ruff` and
+;; `python-mypy`.
+;;
+;; A web search lead to [a comment][1] on emacs-lsp/lsp-mode/#1413, "How to
+;; disable lsp as flycheck's default checker". The user mentioned they had to
+;; set `lsp-diagnostics-provider` *before* `lsp-mode` was loaded. Indeed, that
+;; did the trick.
+;;
+;; [1]: https://github.com/emacs-lsp/lsp-mode/issues/1413#issuecomment-674325953
+
+(use-package lsp-mode
+  :defer t
+  :init
+  (setq lsp-diagnostics-provider :none)
+  (setq lsp-headerline-arrow ">"))
 
 ;;;; magit
 
@@ -176,3 +193,5 @@
 
 (add-to-list 'purpose-user-regexp-purposes '("^\\*pytest-" . logs))
 (purpose-compile-user-configuration)
+
+                                        ; LocalWords:  lsp flycheck's
