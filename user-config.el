@@ -82,24 +82,28 @@
 
 ;;;; lsp-mode
 
-;; After I updated Spacemacs to `4d7c01d3e` (February 20, 2026), flycheck mode
-;; wasn't enabled anymore in Python buffers. When I manually enabled flycheck
-;; mode in such a buffer, the error list showed the errors were provided by LSP
-;; instead of the expected command-line utilities `python-ruff` and
-;; `python-mypy`.
-;;
-;; A web search lead to [a comment][1] on emacs-lsp/lsp-mode/#1413, "How to
-;; disable lsp as flycheck's default checker". The user mentioned they had to
-;; set `lsp-diagnostics-provider` *before* `lsp-mode` was loaded. Indeed, that
-;; did the trick.
-;;
-;; [1]: https://github.com/emacs-lsp/lsp-mode/issues/1413#issuecomment-674325953
-
 (use-package lsp-mode
   :defer t
   :init
+  ;; After I updated Spacemacs to `4d7c01d3e` (February 20, 2026), flycheck mode
+  ;; wasn't enabled anymore in Python buffers. When I manually enabled flycheck
+  ;; mode in such a buffer, the error list showed the errors were provided by
+  ;; LSP instead of the expected command-line utilities `python-ruff` and
+  ;; `python-mypy`.
+  ;;
+  ;; A web search lead to [a comment][1] on emacs-lsp/lsp-mode/#1413, "How to
+  ;; disable lsp as flycheck's default checker". The user mentioned they had to
+  ;; set `lsp-diagnostics-provider` *before* `lsp-mode` was loaded. Indeed, that
+  ;; did the trick.
+  ;;
+  ;; [1]: https://github.com/emacs-lsp/lsp-mode/issues/1413#issuecomment-674325953
   (setq lsp-diagnostics-provider :none)
-  (setq lsp-headerline-arrow ">"))
+  (setq lsp-headerline-arrow ">")
+  ;; By default, the breadcrumbs also show the "document symbols", for example
+  ;; which class and method point is at. These symbols can change when you move
+  ;; point and this leads to a more restless experience. To avoid that, only
+  ;; show the path to the file in the project.
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file)))
 
 ;;;; magit
 

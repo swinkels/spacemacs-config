@@ -687,7 +687,6 @@ This function is called at the very end of Spacemacs initialization."
    '(helm-display-header-line nil t)
    '(helm-move-to-line-cycle-in-source nil)
    '(lsp-enable-symbol-highlighting nil)
-   '(lsp-headerline-breadcrumb-enable nil)
    '(lsp-modeline-code-actions-segments '(count))
    '(lsp-pylsp-plugins-flake8-enabled nil)
    '(lsp-pylsp-plugins-isort-enabled t)
