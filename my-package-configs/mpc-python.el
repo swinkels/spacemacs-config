@@ -1,3 +1,69 @@
+;;; lsp-mode - Use Zuban to replace mypy and as Python LSP server
+
+(use-package lsp-mode
+  :defer t
+  :config
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection "zubanls")
+    :activation-fn (lsp-activate-on "python")
+    :server-id 'zuban)))
+
+(use-package flycheck
+  :defer t
+  :config
+
+  ;; let the Zuban type checker be known to flycheck
+  ;;
+  ;; This is a copy of the code to define the flycheck checker for mypy[^1]. It
+  ;; works without changes because `zuban mypy' is compatible to mypy.
+  ;;
+  ;; [^1]: package version 20260224.1923
+  (flycheck-define-checker python-zuban-mypy
+    "Zuban syntax and type checker.
+
+See URL `https://docs.zubanls.com/en/latest/'."
+    :command ("zuban"
+              "mypy"
+              "--show-column-numbers"
+              "--show-error-codes"
+              "--no-pretty"
+              (config-file "--config-file" flycheck-python-mypy-config)
+              (option "--cache-dir" flycheck-python-mypy-cache-dir)
+              (option "--python-executable" flycheck-python-mypy-python-executable)
+              source-original)
+    :error-patterns
+    ((error line-start (file-name) ":" line (optional ":" column)
+            ": error:" (message) line-end)
+     (warning line-start (file-name) ":" line (optional ":" column)
+              ": warning:" (message) line-end)
+     (info line-start (file-name) ":" line (optional ":" column)
+           ": note:" (message) line-end))
+    :error-filter
+    (lambda (errors)
+      (dolist (err errors)
+        (let ((msg (flycheck-error-message err)))
+          (when (and msg (string-match "\\(.*?\\)  \\[\\([^]]+\\)\\]\\'" msg))
+            (setf (flycheck-error-message err) (match-string 1 msg))
+            (setf (flycheck-error-id err) (match-string 2 msg)))))
+      errors)
+    :working-directory flycheck-python-find-project-root
+    :modes (python-mode python-ts-mode)
+    ;; Ensure the file is saved, to work around
+    ;; https://github.com/python/mypy/issues/4746.
+    :predicate flycheck-buffer-saved-p)
+
+  ;; Add the Zuban flycheck checker to the end of the list of checkers to give
+  ;; it a lower priority than the other Python checkers. In this way it's not
+  ;; automatically selected and catch an unsuspecting user by surprise.
+  (add-to-list 'flycheck-checkers 'python-zuban-mypy t)
+
+  ;; let the ruff flycheck checker appoint Zuban as next checker instead of mypy
+  ;;
+  ;; For my Python projects, this lets flycheck automatically run Zuban.
+  (flycheck-remove-next-checker 'python-ruff 'python-mypy)
+  (flycheck-add-next-checker 'python-ruff '(warning . python-zuban-mypy)))
+
 ;;; pydor - Run the doctests in the doctring at-point
 
 (use-package pydor
