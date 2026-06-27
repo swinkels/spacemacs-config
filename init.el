@@ -108,12 +108,8 @@ This function should only modify configuration layer settings."
      denote
      direnv
      helm-dash
-     (pydor :location (recipe :fetcher github :repo "swinkels/pydor"))
-     ;; As documented by Spacemacs in ~/.emacs.d/private/local/README.md, the
-     ;; next entry adds ~/.emacs.d/private/local/orgox to the load-path. It does
-     ;; not actually load the package, which is done in
-     ;; .spacemacs.d/user-config.el
-     (orgox :location local) ; to publish my notes
+     (pydor :location (recipe :fetcher github :repo "swinkels/pydor")) ; to run Python doctests
+     (orgox :location (recipe :fetcher github :repo "swinkels/orgox")) ; to publish my notes
      org-tree-slide
      )
    ;; A list of packages that cannot be updated.
