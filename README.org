@@ -1,5 +1,5 @@
 This repo contains my personal configuration of the [[http://spacemacs.org/][Spacemacs]] distribution of
-Emacs. I maintain this config for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/e51391fa2a4b63120960a5bf1e14d38e370a5511][e51391fa]], 27 September 2025,
+Emacs. I maintain this config for Spacemacs commit [[https://github.com/syl20bnr/spacemacs/commit/ab5bb4cecff218d30c21fc4204260412c7ce8abd][ab5bb4ce]], 27 September 2026,
 and use it with Emacs version 30.2.
 
 * Installation
@@ -8,7 +8,7 @@ To install my configuration, you have to install Spacemacs first. To do so,
 clone Spacemacs to ~$HOME/.emacs.d~ and checkout the correct commit[fn:1]:
 #+begin_src bash
 git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
-cd ~/.emacs.d && git checkout e51391fa
+cd ~/.emacs.d && git checkout ab5bb4ce
 #+end_src
 Spacemacs is an extensive, unifying layer on top of (literally) hundreds of
 other packages, most of which are being developed independently of Spacemacs.
