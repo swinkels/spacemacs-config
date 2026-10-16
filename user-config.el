@@ -33,6 +33,14 @@
 
 ;;; Individual-packages
 
+;;;; clipetty
+;;
+;; Clipetty is a minor mode for terminal Emacs users that sends text you kill
+;; also to the OS clipboard. For this to work you need a terminal (or terminal
+;; emulator) that supports OSC 52 escape sequences.
+
+(use-package clipetty :unless window-system :config (global-clipetty-mode))
+
 ;;;; consult
 
 (use-package consult
