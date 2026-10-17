@@ -103,6 +103,8 @@ This function should only modify configuration layer settings."
    ;; comma.
    dotspacemacs-additional-packages
    `(
+     ;; bring your favorite AI agents to Emacs
+     agent-shell
      ;; send text you kill also to the OS clipboard, for terminal Emacs
      clipetty
      (dash-docs :location (recipe :fetcher github :repo "swinkels/dash-docs" :branch "avoid-cannot-open-message"))

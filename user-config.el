@@ -33,6 +33,16 @@
 
 ;;; Individual-packages
 
+;;;; agent-shell
+;;
+;; agent-shell brings your favorite AI agents to Emacs, keeping you at home:
+;; familiar buffers and bindings, no terminal emulation. Powered by ACP.
+
+(use-package agent-shell
+  :defer t
+  :config (evil-set-initial-state 'agent-shell-mode 'emacs)
+  :custom (agent-shell-preferred-agent-config 'opencode))
+
 ;;;; clipetty
 ;;
 ;; Clipetty is a minor mode for terminal Emacs users that sends text you kill
